@@ -1,0 +1,692 @@
+
+\documentclass{article}
+
+
+%\documentclass[AEJ,reqno]{AEA} % the reqno is no equations numbers on right..
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[figuresright]{rotating}
+%\usepackage[abbr]{harvard}
+\usepackage{booktabs}  %this is for toprule...
+\usepackage{colortbl}
+\usepackage{dcolumn}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{afterpage}
+\usepackage[section]{placeins}
+%\usepackage{siunitx}
+\usepackage{placeins}
+\usepackage{tabu} % for table in markup ds..
+\graphicspath{{Figures/}}
+%\usepackage{caption} % this is used to add source or additional note on the figures..
+\usepackage{subfig}
+\usepackage[flushleft]{threeparttable}
+\usepackage{physics} % this is used for adding partial derivatives etc..
+
+%\usepackage{showframe}
+\usepackage[margin=1.5in]{geometry}
+
+%\usepackage{tablefootnote} % this should be loaded after the hyperref and sideways table packages/environments..
+
+
+%  http://pdf2docx.com/
+
+
+%\draftSpacing{1.5}
+
+\begin{document}
+
+
+
+
+\title{Are Improved Homes Overcapitalized in the Long Run?\footnote{Although the research described in this paper has been funded wholly or in part by Corelogic RP Data, it has not been subjected to the Institutes's peer review and therefore may not necessarily reflect the views of the company and no official endorsement should be inferred.}}
+%\shortTitle{HOUSING RE-INVESTMENTS AND MARKET VALUE}
+\author{Haresh Pardasani, Vito Mollica and Stefan Trueck\thanks{%
+Pardasani: Macquarie University, Graduate School of Management; Mollica: Macquarie University, Graduate School of Management; Trueck: Macquarie Unviversity, Department of Business \& Economics. The authors gratefully acknowledge Corelogic RP data and Cordell (a subsidiary of Corelogic) for providing the house price and development approvals data for this research. We would also like to thank Scott Mathews and Kevin Ward for providing valuable feedback during the research.}}
+\date{\today}
+%\pubMonth{Feb}
+%\pubYear{2017}
+%\pubVolume{}
+%\pubIssue{}
+%\JEL{25, 26, 36, 47, 58}
+%\Keywords{Housing Re-investment, Home Improvement, Development Approval, House Prices, Real Estate Economics}
+
+\maketitle{}
+
+\begin{abstract}
+This paper investigates whether there any returns to home improvements or the returns are simply attributed to market appreciation? Using a fixed effects OLS model on a combined data set of Australian house prices and improvement spending for repeat sale homes with over 55,000 properties, we find that improved homes, in expectations, are overcapitalized. Specifically, the returns on improved homes are, on average, 2.4\% lower than the unimproved homes. This result is consistent to a set of robustness tests. In a further analysis, we also find that, for homeowners who buy and sell in the short run, the improved homes have higher returns than the unimproved homes with the most prominent positive effect seen in extension/alteration of around 5.5\%. This is mainly because homeowners who buy and sell in short run are more likely to have an investment motive right at the beginning and therefore their choices and decision are more guided by making a financial gain. Whereas, the homeowners who buy and sell over longer periods of time, are consuming the housing services and enjoy other social benefits at the cost of lower returns.
+\end{abstract}
+
+
+
+\section{Introduction}
+
+Amidst rising house prices, housing re-investments in Australia have become an increasingly important instrument for families to meet their growing housing needs. More and more people are turning to home improvements as an alternative to additional housing. Home improvements are defined as activities which increase the stock of housing capital by remodeling the existing home or building a new house without constructing new dwellings. They should be distinguished from maintenance activities that are aimed at offsetting the physical deterioration in housing capital. Examples of home improvements are adding a bedroom or a bathrooms, building a duplex, converting a garage into a room or building a swimming pool. An improvement generally involves major construction activity, whereas maintenance does not.
+
+\begin{figure}[!ht]
+\centering
+  \subfloat[Total Value of Building Approvals Trend]{%
+      \includegraphics[width=0.75\textwidth]{Figures/Value_building_approvals.png}}\    
+  \subfloat[Total Value of Building Approvals]{%
+    \includegraphics[width=0.75\textwidth]{Figures/ABS_Building_Approvals.png}}\  
+ \caption{\small{Panels (A) and (B) show total value of Building Approvals trend and relative percentages}}
+\label{fig:Total_Value_of_Building_Approvals}
+Source: \scriptsize{Australian Bureau of Statistics}
+\end{figure}
+
+Over the last 26 years, home improvement expenditures have increased, both in real terms and as a component of the total residential investment. Investments in 'Houses' constitute close to 70\% of the total residential investments. Around 80\% of those investments come from redeveloping a new houses and remaining 20\% come from alterations and additions to existing houses. \citep{abs1} This however, masks significant variation across different improvement types used in our analysis.
+
+Figure \ref{fig:Total_Value_of_Building_Approvals}, panels (a) and (b), show the total value of granted building approvals in trend and relative percentages. We see that the total value of building approvals for 'New Houses' is constantly growing and is a large component of total residential investment. Building approvals on alterations of existing houses has also increased over the years.
+
+The 'Other residential' category is a building other than houses primarily used for long-term residential purposes and which contains (or has attached to it) more than one dwelling unit for e.g. it includes blocks of flats, home units, attached townhouses, semi-detached houses, duplexes\footnote{Duplexes are considered in the 'Other residential buildings' and Australian Bureau of Statistics does not provide a separate development cost values}. The expenditure on 'other residential' buildings have accelerated in recent years which is evident in the large number of developments of high rise building in the country. In this paper, we focus only on the home improvements for 'Houses' as the building type. 
+
+
+\begin{comment}
+
+\begin{figure}[!htb]
+    \centering
+     \includegraphics[width=0.75\textwidth]{Figures/Value_building_approvals.png} \par
+ \caption{Total Value of Building Approvals Trend}
+Source: \scriptsize{Australian Bureau of Statistics}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Figures/ABS_Building_Approvals.png}\par
+ \caption{Total Value of Building Approvals}
+Source: \scriptsize{Australian Bureau of Statistics}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Figures/value_of_work_done_87520021.png}\par
+ \caption{Total Value of Work Done}
+ \label{fig:value_of_work_done}
+Source: \scriptsize{Australian Bureau of Statistics}
+\end{figure}
+
+\end{comment}
+
+With growing spending on home improvements, there is certainly more value created at the macroeconomic level in terms of increased employment, higher production of goods and services. However, from the homeowners perspective, there is a long standing question of the returns from home improvements. Are housing re-investments profitable? Do homeowners who improve their homes make better returns as compared to those who don't? Does the excess value attributed to the home improvement outweigh the costs? Also how do returns compare for homeowners who buy and sell with an investment motive as opposed to people who buy the property for self living? These are some of the questions that we seek to answer.
+
+Looking at development approvals directly, is notoriously difficult given that the improvements for different households occur at different points in time between a repeat sale. Also many household make a development application but never go ahead with the construction and therefore it becomes difficult to estimate the value of home improvement. When people buy an resell the property, they would make a return from the repeat sale. But if homeowners improve their homes in between the repeat sale, they would have also created some value from producing additional housing. The dynamics of both house price appreciation and the home improvement value also add to the challenge.
+
+This paper studies and compares the returns between improved and unimproved homes. We develop a simple fixed effects OLS model in log-returns and compare the means of improved and unimproved homes using a dummy variable and control for the other sources of variations. The results show that when accounted for the development spending, the returns on improved homes, in aggregate, are lower than unimproved homes by around 2.4\%. Although, the degree to which returns are lower vary for different improvement types, we find that all improvement types, except for Duplexes, have lower returns than unimproved homes. These relatively lower returns are not explained by household demographics nor property characteristics, as they are separately controlled for, but rather to the cost of consumption of housing services and other social benefits that are enjoyed. We also find, on the contrary, that homeowners who purchase the property with and investment motive, make higher returns on the home improvement than those who do not improve as compared to people who did not have an investment motive.
+
+The remainder of the paper is organized as follows. In section II we provide a literature review. In section III, we present a simple model of house price return. Section IV describes the data. In section V, we estimate a fixed effects OLS model and compare the returns on improved homes relative to unimproved homes. In section VI, we perform further analysis to examine how returns vary for investor and non-investor groups. In section VII, we discuss the set of robustness tests. Section VIII concludes.
+
+
+\begin{comment}
+
+The data contains property-specific information for a national-sample of homeowners, including individual house prices, statistical subdivision level Hedonic Index and home improvement expenditures. Using these data, we calculate the expected house price at the time of DA and the home equity of the developed property which is the sum of the expected house price and the cost of home improvement. We then calculate the log return of the property between the resale price and the home equity at the time of home improvement. 
+
+
+
+while both fixed effects specifications are estimated on thin samples and accordingly have less statistical power than the main analysis, the estimation results generally confirm the main findings..
+
+ while there is now an abundance of cross-country evidence on the determinants of house price growth, relatively little of this identifies identifies relationship with the housing developments. Papers by..... sos and so...do suggest that the construction costs have effect on the house price returns...so and so...
+
+In our study, we utilise both time and cross-section variation in the developments and house price data. A reasonably long time period of house price data (1990-2016, 26 years) and development data (2000-2016, 16 years) and the
+
+Also the investors are different in their approach, as they may be more astute investors and want to sell for profit. So probably invest in the properties with a point of making money as compared to the others home owners who have families and they are more particular about economic benefit and so they invest wisely. on the other hand, families want to stay in their homes for long term. So they enjoy the non durable housing service as opposed to investors that instead make economic profits.
+
+\end{comment}
+
+
+\section{Literature Review}
+
+There are several studies that have either modelled the demand for home improvement expenditures as a probability measure or the dollar value and there are other studies that have identified the determinants of home improvement expenditures. However, there is little work done in the literature that attempts to quantify the returns on home improvement.
+
+\citet{boehm1986improvement} studies the determinants of home improvement expenditures using a data sample created from surveys. The author relates the home improvement expenditure to the consumption benefits and to the resale value. More specifically, the author suggests that the marginal benefit function represents the present value of the consumption benefits derived from additional unit of home improvement and the present value of change in resale value resulting from improvement which is the investment return on home improvements. However they do not estimate the return on the home improvement.
+
+Also \citet{boehm1986improvement} states that the investment return to home improvements depends on the price of housing services expected to prevail at the time the house is sold. However they do not estimate the relationship between investment return and the home improvement. The state that this price is positive function of the current neighbourhood price of services and expected rate of house price appreciation and therefore uses other neighbourhood quality variables such as crime rate in the area, quality of schools, roads, sidewalks etc as explanatory variables in the empirical regression. \citet{galster1987homeowners} studies the determinants of housing reinvestment expenditures in a choice framework of improving compared to do nothing option. However they also do not estimate the returns for improved and unimproved homes.
+
+\citet{mendelsohn1977empirical} builds a theoretical model on home improvements and relate relates the amount of self labour invested in the home improvement as opposed to hired labour. The author suggests that homeowners work on their house until the rewards from that work are equal to the value of his leisure time. The reward of his work depends on his productivity, the market price of housing and the marginal utility of both housing and assets. The author also suggests that the marginal value of a dollar spent on housing improvements, assets or other goods should all be the same. \citet{potepan1989interest} focus on the consumption demand of home improvement i.e. the home improvement demand for owner occupier. They argue that home owners face choice between improving their existing housing and moving to obtain additional housing. They model the demand for housing reinvestment using interest rates and incomes and show that the housing investment is positively related to the interest rates as interest rates are high people are less likely to move and therefore reinvest in their own homes. Also housing reinvestment is negatively related to the incomes as higher income would make them more like to move instead of reinvesting in their homes. \citet{montgomery1992explaining} models the housing improvement demand by simultaneously allowing for the home owners to choose the level of stock they hold and the means by which they adjust their current holdings of the housing stock, i.e. either moving to a new home, or improving the existing home or doing nothing. 
+
+\citet{gyourko2003urban} describes the role of construction costs in housing decline in America. Their main question in this paper is to study the sensitivity of investment to construction cost. They suggest that a rational investor would not invest in the housing if the home values are below replacement cost. There is often decay in the housing markets of declining areas. In their paper, they ask whether this process is endogenously demand driven or whether the supply side of the housing market plays some role. They find that housing prices are close to replacement cost in most areas. For houses in specific neighbourhoods where the house prices are near construction costs, modest difference in replacement cost may be critical on the margin to determining whether a fundamental decay sets in or reinvestment occurs in the face of a negative demand shock. They say that the construction costs need not be exogenous to the decay process i.e. the construction costs may cause decay process which in turn may increase the construction cost and further induce the decay process. They suggest that if the construction cost were flexible downward in response to the negative demand shocks, then there need not even be a negative impact on housing investment. Their analysis finds that the construction costs are not very sensitive to construction levels. there is a substantial between city variation in the costs that cannot be account for with a standard, upward sloping supply schedule. The authors also note that owner occupiers may reinvest for non financial reasons as they are the consumers of the housing stock. 
+
+
+\citet{gyourko2004reinvestment} finds that demand for renovation services to be relatively price-inelastic. They also report that there is a substantial heterogeneity in the distribution of home values across different market areas. In places with high house value. a 1-percent drop in the construction cost would not change the fraction of homes with value above replacement costs. Land prices are so high in these areas that there are virtually no homes valued at less than 110 percent of the construction costs. They also confirmed that the relationship between renovation and home values is strongly linear. They confirmed this by introducing 20 dummies for each corresponding value quantile into regressions and they still could reject at the 5 or 10 percent levels. \citet{guthrie2010house} suggests that the new house prices are considerably above the direct construction costs. This premium can be attributed to the option value of delaying the development of marginal piece of land. Competition can reduce the this option value but as long as there is heterogeneity in the land, the value cannot be reduced to zero. In the US data they find that this premium is economically significant.
+
+All these authors have explained the factors and how they affect the home improvement demand and the expenditures. However, there is no study that estimates the returns to home improvements. \citet{simons2009housing} quantifies the returns on the government spending in the context of community housing. Also, unlike our method that uses a regression model and controls for the other factors, they use a cost benefit analysis framework and show that every dollar invested by local government returns \$0.55 on average. Their underlying idea is that the return or benefit is a derived measure which is a function of one time property tax and regular tax income earned by the government and also the loan and the interest payments made by homeowners.
+
+In the next section, we develop a simple model of house price returns.
+
+
+\section{A Model of House Price Return}
+
+Let $t$ represent a point in time. Let subscript $-1$ represent time of purchase, $+1$ be the time of subsequent sale post DA (resale) and for improved homes, $0$ represent time of home improvement\footnote{For purpose of model exposition, we assume the time of DA activity as a point in time, however, the point actually represents an interval from approval date till the completion of improvement. The point in time when improvement is completed is equal to the time of building approval plus expected commencement time (c) and plus average construction time (c'). In the empirical analysis, we adjust for this interval accordingly}. Therefore, $$t_{-1} < t_0 < t_{+1}$$ Also let time between $t = -1$ and $t = 0$ be given by $t_{0} - t_{-1} = t_1$ and the time between $t = 0$ and $t = {+1}$ be given by, $ t_{+1} - t_{0} = t_2$.
+
+
+We consider that the value of a house comprises of three components, namely, Land value ($L$), non-durable consumption (B) (i.e. the value of the building) and durable consumption (H) (i.e. the value of housing service) \citep{flavin2008model}. Let $R$ be the the composite rent to be paid for the collective value of the house at a given time t. Then, using the model given by \citet{kiel1995effect}, the house value $V$ at time $t$ can be modelled as,
+
+\begin{equation}
+    V(t) = \int_{T}^{\infty} R e^{\alpha t} e^{-bt} e^{ht} e^{\sum_{i} \mu_i K_i} e^{-rt} dt
+\end{equation}
+
+where, $R$ is the composite rent at some initial time t, $\alpha$ is the appreciation rate of the land, $b$ is the depreciation rate for the non-durable consumption (building value), $h$ is the appreciation rate, if any, for the durable consumption (housing service), $K_i$ is the set of control variables where $i$ indexes different control factors, $\mu_i$ is the corresponding effect of the controls on the house prices and $r$ is the discount rate. 
+
+The houses in Australia could be on a freehold or leasehold land title. In freehold lease the homeowner has full ownership of the property until perpetuity while in leasehold, homeowner can possess the property for up to 99 years. Most of the residential properties in Australia are freehold. Therefore the rents to be paid for periods far out in the future would be negligible. Hence the integral of the above equation will be finite. 
+
+Solving the above integral yields,
+
+\begin{equation}
+    V(t) = \frac{R e^{-(r-\alpha+b-h)T} e^{\sum_{i} \mu_i K_i}}{r-\alpha+b-h}
+\end{equation}
+
+Now, for repeat sales data, we have sales prices observed twice within a specified period. Using equation 2, we can calculate the value of the house at the time of purchase as,
+
+\begin{equation}
+    V_{-1} = \frac{R_{-1} e^{-(r-\alpha+b-h)T} e^{\sum_{i} \mu_i K_i}}{r-\alpha+b-h}
+\end{equation}
+
+Similarly, the value of the house at the time of resale can be given as,
+
+\begin{equation}
+    V_{+1} = \frac{R_{+1} e^{-(r-\alpha+b-h)(T+t_{+1}-t_{-1}} e^{\sum_{i} \mu_i K_i}}{r-\alpha+b-h}
+\end{equation}
+
+Now, we can calculate the appreciation rates in terms of log-returns as,
+
+\begin{equation} \label{eq:a}
+    ln [V_{+1}/V_{-1}] = ln [ (\frac{R_{+1} e^{-(r-\alpha+b-h)(T+t_{+1}-t_{-1})} e^{\sum_{i} \mu_i K_i}}{r-\alpha+b-h}) / (\frac{R_{-1} e^{-(r-\alpha+b-h)T} e^{\sum_{i} \mu_i K_i}}{r-\alpha+b-h})]
+\end{equation}
+Simplifying equation \ref{eq:a} and re-arranging gives,
+\begin{equation}
+    ln [V_{+1}/V_{-1}] = ln [R_{+1}/R_{-1}] + (\alpha-b+h-r)(t_{+1}-t_{-1}) 
+\end{equation}
+
+This model is estimated using the log returns of repeat sales prices of houses over time. Since, the changes in the supply and demand of houses have been found to affect appreciation rates, these characteristics are included in the regressions (although the equations suggests that these cancel out). The composite rate $(\alpha+h-r-b)$ between the sales are inseparable but jointly observed in the market index. Also, although the depreciation rate is captured in the Market index, we explicitly allow for the depreciation rate to be included in the regression to capture the effect of depreciation for improved homes\footnote{The hedonic house price index developed by CoreLogic does not account for the age of the property and therefore the effects of depreciation may not have been captured entirely. In our model, we explicitly include the age of the DA and control for linear as well as any quadratic effects of depreciation}. The equation 6, therefore, is estimated as,
+
+\begin{equation} \label{eq:estimate}
+    ln [V_{r}/V_{p}] = a_0 + \beta{(Market Return)} - d(t2-t1) + \sum_{i}\mu_i K_i )
+\end{equation}
+
+where $a_0 = ln [R_{+1}/R_{-1}]$ is a constant and $\beta$ is a composite rate of return equal to $(\alpha+h-r-b)$ attributed to the average market appreciation.
+
+
+\section{Institutional Setting and Data}
+
+Our paper focuses on the residential re-investments in building types - 'Houses' only that are single family detached homes. Other residential building types such as units/apartment, townhouses and semi-detached houses are a small portion of improvement spending and therefore not included in the analysis. The improvement activity can have several elements such as completely demolishing and rebuilding a new house from scratch or adding a bedroom, bathroom or carport, or putting a veranda or pergola. These elements of home improvements are grouped into different improvement types such as 'houses'/'single dwelling', 'extensions/alterations', 'carports/garages/sheds', 'swimming pools', 'verandas/pergolas' and 'duplexes'.
+
+For Duplexes, households typically split the land into two lots of equal sizes and build two duplexes on the land and then sell one of the duplexes. The price of previous sale is the price at which the owner buys the whole lot which is subdivided into two, but when they sell after building a duplex, the price recorded in the house price data set is only for one of the duplexes. Therefore, to account for this land-split and the double equity that is generated for homeowners, we assume that the other lot also sells at the same price and therefore we double the resale price in our analysis. 
+
+Prior to carrying out any home improvement activity, homeowners are required to obtain a building permit/development approvals from their local councils. To do that, homeowners need to lodge a formal development application (DA) to their local councils detailing the plan and the cost of developments which is estimated by their builders. As part of the development approval applications, information on development cost and the type of developments are collected and we use this reported development cost as a expected value for the actual home improvement expenditures\footnote{As the DA fees charged by the local councils are typically a percentage of the home improvement expenditure, the households have incentive to declare lower costs so that they will have to pay lower fees. Therefore the DA costs recorded in the DA data set may be slight underestimates of actual home improvement expenditures.}. 
+
+Homeowners can choose to carry out multiple improvements at the same time, For example, add a bedroom and also construct a swimming pool. In such cases homeowners can submit their plan for multiple improvements in the same development application. In our data set, even if there is one development application, multiple improvements are recorded as separate records. If homeowner carries out multiple types of improvements at different times, then obviously, they have to make multiple applications. Once the application is received, the council reviews the development plan and if it satisfies the requirements, the development approval is granted to the homeowners. This is the date when building approval is received that we use in our model as the date of improvement.
+
+The value of additional housing acquired through home improvement is unobserved until the property is sold. When the property is sold the value of additional housing will be implicit in the sale price. Therefore in our analysis we consider only the repeat sales records with a development work carried out between those repeat sales. 
+
+We use a unique data set of repeat sales created by combining the development approvals\footnote{Development Approval's data is provided by Cordell and collected through the surveys of local councils.} and the house price data\footnote{House price data is provided by CoreLogic RP data and collected from real estate agents, banks and local government bodies. The house prices are recorded in CoreLogic's database only when the property is either listed, sold, valued or financed.}. The house price data and the development approvals data are available from 1990 to 2016 and from 2004 till 2016 respectively. The combination of these data-sets are well suited for this study because together they provide detailed information on individual house's sale price and improvement spending over time, date of building approvals and classification of home improvement types. This allows us to estimate returns on different types of home improvements. Finally from the house price data, we calculate returns for a control sample of unimproved homes. This enables identification on whether the returns for homes with improvement are worse than the 'do-nothing option'.
+            
+After filtering the data for, irrelevant sales types\footnote{Sales where transfers are of the types 'gift', 'court order', 'family sale', 'extraordinary circumstances', 'mortgage in possession', 'part-sale/consideration represents partial interest in the property', 'rebated-sale/negotiated sale', 'residential-redevelopment', transfer by death or transfer by bankruptcy. These types of sale represented ~3.5\% of the total population data set.}, duplicates\footnote{These represent cases where the entire record was duplicated or cases where some of the columns are duplicates but others were different - for example, all other columns had same entries but the construction type was mentioned either in the full form as 'alterations/additions' or in abbreviated form  as 'alts/addns' or was misspelled during data entry. In these cases, we took only one of the records. There were cases, where all the columns were same, but there were differences in dates. In this case, we took the record with the latest date as that it was highly unlikely for households to carry out same type of construction twice and so took the latest DA record.}, invalid\footnote{These were the cases where the homeowners submit a revised application after the approval due to change in their development plans and therefore the previous development approval becomes invalid} and bad records\footnote{These are reporting or coding errors. For example, the reported value may have a missing zero (a \$50,000 home recorded as a \$5000 home) or reported in thousands or dollars (a \$50,000 home recorded as \$50 home). With no systematic way of identifying and correcting for these cases, we exclude the outliers at bottom 1 percentile and 99.9 percentile}, we have roughly 5.4m total homes with repeat sales and among those 1.6m houses have development approvals in Australia. On combining these two data sets, we have a unique sample of 259,428 improved homes that have repeat sales and improvement carried out between the repeat sales. 
+
+However, of these 259,428 records, there could be some properties that received development approvals but haven't gone ahead with their development. Based on the available data, there is no definitive way to identify all the properties that have actually completed their development. It is important to distinguish between properties that have obtained building approvals but haven't gone ahead with the construction and those that have, since, if the property has not gone ahead with their development then we would have accounted for the improvement cost, however, the value of that improvement would be implicitly excluded from the contract price and therefore we would underestimate the returns and cause a downward bias.
+
+Therefore we need to identify a robust set of properties where development work has been completed. To do so, we compare the attributes at the time of resale to the previous sale and include only those properties, where one of the attributes (i.e. bedrooms, bathrooms or car spaces) has increased from the time of previous sale, for duplexes, new house and extension/alterations\footnote{Attribute changes for verandas and pergolas were not confirmed as those attribute flags are not available. We assume that, considering relatively smaller outlay, households would have gone ahead with the construction.}. For swimming pools, we confirmed if the swimming pool flag equals 'true' at the time of current sale. 
+
+
+\input{Tables2/Distribution.tex}
+\vspace*{-\baselineskip}
+\input{Tables2/DA_cost_statistics_rs_const_dollar.tex}
+
+Properties where the previous attributes were missing or the attributes remained unchanged or decreased were excluded from the analysis. We further excluded records where one of the sale transaction, either purchase or a resale, is a land transaction. So finally we have a robust sample of 55,789 records for our analysis. 
+
+Since the development approvals data is available from 2004, we cannot ascertain that the homes in control sample have not carried out any improvement prior 2004 and this could lead to biased results. Therefore, from our control sample, we exclude all the homes where purchases are prior 2004. Also, although, the argument applies to improved homes as well, but in the interest of having reasonable sample size and since there is no bias created as improvement cost will be underestimated and therefore does not affect the result adversely\footnote{We also perform analysis excluding the purchase prior 2004 for improved homes in the robustness section}, we use the full sample of improved homes.
+
+Table \ref{tab:distribution} and \ref{tab:DA_cost_statistics_rs_const_dollar} show the distribution and descriptive statistics of DAs by type and state at repeat sale level. We see that on average the highest cost is for a Duplex \$535,922 with standard deviation of \$261,690 followed by House/Single Dwelling of around \$338,749 an standard deviation of \$244,922. Also the highest cost across states, is for Victoria of \$173,012 followed by New South Wales of \$129,786. 
+
+%\input{Tables/dist_da_state_type.tex}
+%\input{Tables/dist_da_state_type_bet_rs.tex}
+
+
+
+%may be talk something on the distribution and statistics here..
+
+%\input{Tables/DA_statistics.tex}
+%\input{Tables/DA_statistics_constant_dollar.tex}
+
+%\input{Tables/DA_stats_rs_level.tex}
+%\input{Tables/DA_stats_rs_level_const_dollar.tex}
+
+
+%\floatbarrier
+
+%This method of identifying confirmed developments was robust with one disadvantage that we had to exclude observations where the previous attributes were missing and we cannot confirm change in attributes\footnote{One flag for identifying confirmed developments, was the presence of the builder name. To test the validity of the builder name flag, we looked at the distribution of the builder types in our robust sample. Of the robust records, we found that only 36\% of records had builder names available and almost 60\% of records had no builder names and the remaining 5\% were owner builders. This suggested that the builder name flag could not be used as a valid indicator of confirmed developments}. 
+
+%\input{Tables/ds_relative_time.tex}
+%\floatbarrier
+
+
+
+\begin{comment}
+
+                \begin{figure}[!ht]
+                \centering
+                  \subfloat[Time between sales]{%
+                     \includegraphics[width=.6\textwidth]{tbs.png}}\
+                     
+                  \subfloat[Time to DA]{%
+                    \includegraphics[width=.6\textwidth]{ttda.png}}\
+                    
+                \subfloat[Time to subsequent sale post DA]{%
+                    \includegraphics[width=.6\textwidth]{ageda.png}}\
+                 \caption{\small{Panels (A), (B) and (C) show the distributions of time between sale, time to DA and time to subsequent sale post DA respectively}}
+                 
+                \label{fig:relative_time}
+                
+                \end{figure}
+\end{comment}
+
+Figure \ref{fig:Rplot_month_bet_sale_notional} shows the distribution of relative time of sales relative to DA. We see that the majority of people do home improvements within one year of purchasing their property. We also see there are some homeowners improve and who sell their homes within 2 years of purchasing. These households are likely to be investors and we there are some investors in the unimproved group as well. We also perform further analysis for investor and non-investor groups. Also there are some homeowner who improve the home and sell within two years of improvement. 
+
+\begin{figure}[!ht]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/Rplot_time_bet_sales_notional2004.eps} \par
+ \caption{Time between sales for Improved vs Unimproved Homes and Time of Sale relative to DA}
+ \label{fig:Rplot_month_bet_sale_notional}
+\end{figure}
+
+
+
+\begin{comment}
+
+        \begin{figure}[!htb]
+            \centering
+            %\textbf{Time between Sales}\par\medskip
+            \includegraphics[scale=0.45]{tbs.png}
+            \caption{Time between sales}
+            \label{fig:tbs}
+           % \numberwithin{figure}{section}
+             \includegraphics[scale=0.45]{ttda.png}
+            \caption{Time to DA}
+            \label{fig:ttda}
+           % \numberwithin{figure}{section}
+             \includegraphics[scale=0.45]{ageda.png}
+            \caption{Time to repeat sale after DA}
+            \label{fig:ageda}
+           % \numberwithin{figure}{section}
+        \end{figure}
+        %\floatbarrier
+
+%\afterpage{\clearpage} %this take me to the next page
+\end{comment}
+
+
+Table \ref{tab:variable_statistics} shows the descriptive statistics for the main variables used in the model.
+
+\input{Tables2/Variable_statistics.tex}
+
+
+%reference -- The production function for housing: evidence from france.. Combes, Duranton, Gobillon
+
+
+
+\begin{comment}
+we also need to look at the issue that we are using data starting from 1990 but the da recors are available from 2000. so we although using data from 1990 allows us to use records that have done da post 2000 period but their prev sale could be before 2000 say eg 1990. however this brings an issue taht we cannot guarantee that those records the records are in the control group of no da.. this may lead to a sample selection bias..
+\end{comment}
+
+
+\section{Model Estimation and Results}
+
+The house price data is available for each individual property, however since the sale prices are observed infrequently and at different points in time, this gives rise to an unbalanced panel data. However, we take the returns of each individual property as one observation. Therefore, our data set is reduced to cross-sectional data with returns for each individual property. We estimate the model in equation \ref{eq:estimate} using the following general form,
+\begin{equation}
+    Y_i = DA + \beta{Mkt} + \gamma_1{Age} + \gamma_2{Age^2} + Years + Location + \mu{K} + \epsilon
+\end{equation}
+
+Where, $DA$ is the dummy variable coded as $1$ for improved homes and $0$ for unimproved homes. $Mkt$ is the market index and is captured using the hedonic house price index\footnote{The house price index provided by CoreLogic is developed at the Statistical Subdivision (SSD) level using various factors, including number of beds, baths, cars and swimming pool}. $Age$ is the time between sale and indicates how much the property has aged between sales. As the property will only start depreciating after it is built, we adjust the age by subtracting the average commencement and construction times, rounded to end of month, based on the Australian bureau of Statistics figures\footnote{\citet{abs_house_times_commence} and \citet{abs_house_times} provide average commencement time and construction times for new houses. Average construction time for swimming pool is available from \citep{hi_swimming_time}. The other values are calculated on pro-rata basis of the average costs of DA}, $Years$ is the year fixed effects at the time of improvement, $Location$ is the location fixed effects at the State level\footnote{As there could be lot of within state variation in house prices that could affect the returns, we also tested the results by controlling for the variations using SSD level fixed effects in the robustness section}. 
+
+
+Since we calculate the return on each individual property, our model is reduced to a cross-sectional regression. However there are several sources of variation in the returns. One of the major sources of variations is the market appreciation. The market index variable captures the house price appreciation attributable to the market. Also since the time between the sales could be significantly different for each individual property and this could also affect house price return. Therefore the variation in the returns due to time between sales is controlled for by the Age variable. Now even though we have controlled for the market appreciation, time between sales that captures the depreciation due to aging of the property. We could still have variation in return due to the time of purchase. To account for this, we include the years fixed effects. To control for any geographical effects, we allow for location fixed effects at the State level. $K$ is a set of hedonic factors namely, number of beds, baths and cars. Since, the changes in the supply and demand of houses have been found to affect appreciation rates \citep{kiel1995effect}, these characteristics are included in the regressions as well (although the equations suggests that these cancel out).
+
+Finally $Y_i$ is the log return of resale price over purchase price for each individual property. While, for unimproved homes the purchase price is the actual purchase price, for improved homes, the return are calculated using the notional purchase price. The notional purchase price is equal to the expected price at the time of DA\footnote{As the home improvement spending is reported as at the end of month when building approval is received and not at the time of completion, we index the actual price up to the point of DA approval month as it makes the expected value of the home expressed in the same dollar terms as the month of DA approval.}. plus the total cost of home improvement. The expected price at the time of DA approval is calculated as the actual purchase price indexed \footnote{The expected price is calculated as $E(V_0) = V_{-1} * hpi_0 / hpi_{-1}$} to the point of DA. Hence, the log returns for unimproved and improved homes is calculated as $ln[P_{+1}/P_{-1}]$ and $ln[P_{+1}/(E(P_{0})+ Cost]$ respectively, where $E(.)$ is the expectation and the expected house price at time T = 0 is given by,
+
+$$ E(P_0) = P_{-1} * (hpi_0 / hpi_{-1}) $$ 
+
+So at point t = 0, the notional purchase price is the actual purchase price indexed to development approval date plus the cost of DA. Note that this total price is not equivalent to the value of the home or the sale price. The sale price or value of the home will be higher as there is some additional value created from home improvement. This can be thought of as the notional purchase price. The value of the home will be equal to the notional purchase price plus the additional housing value created from the home improvement. Since homes with no improvements have no additional value, hence comparing the returns for improved homes with the unimproved homes provide us with the identification strategy for estimating returns attributable to home improvements. 
+
+We use the notional purchase price to calculate returns for improved homes for three main reasons. Firstly it puts the purchase price and the improvement spending in the same dollar terms as at time of improvement, thereby allowing us to directly add the indexed price and cost to arrive at the notional purchase price. Secondly, since the additional value produced by the DA which is $H'$ is only identified after the completion of DA.  Any returns from the point of purchase to the point of development approval can only be attributed to the market appreciation and therefore any variation in the returns prior to development approval does not contribute to the identification of home improvement value. Finally, in improvement types like building a new house or building a new duplex, the homeowners demolish the existing building and develop a new house from scratch. However the existing building, after accounting for the depreciation should have some residual building value, $B_0$ (the non-durable consumption) plus the housing service value, $H_0$ (the durable consumption). With the demolition of the old building, while the land value, $\alpha$ remains intact, the non-durable and durable consumption value at time of DA $(B_0 + H_0)$ is reduced to zero. This is the opportunity cost if the land were to be used for purposes other than residential. However, as the homeowner redevelops a house, the value of housing $H$ is regained and there is some additional housing value $H'$ created\footnote{Assuming that the homeowner builds a better home than the previous one.}. Therefore the opportunity cost of DA is only $B_0$. And cost is inseparable and observed implicitly in the Expected value of the home, calculated using the market index, at point of DA. Therefore to fully account for the costs, we need to calculate the expected purchase price at the time of DA\footnote{In case of other improvement types, the existing value of land, building and housing service remains intact, therefore there is no direct opportunity cost. When the home owner carries out development, the only cost is C, the cost of home improvement and the unobserved value created from home improvement is $H'$ which is indirectly observed in the resale price. Therefore there is no direct impact for to the other types of home improvements.}. 
+
+Now, since the development actually happens any time between a purchase and a resale, So at the time of DA, there is a cost incurred, which is observed at the time of building approval received and there is a value produced by completing the development. This value is equal to the building value (i.e. the amount spent for the construction of the building) plus the value of additional housing service). The cost of construction is observed but the value of housing service is unobserved at the time of DA. When the property sells subsequent DA, the additional value produced by DA will be implicitly observed in the resale price. This provides our identification strategy. The identification comes from controlling for the common sources of variation in the house price that affect the returns. A major variation in the house price returns will be attributed to the market appreciation which is captured using the return on the house price index. Another source of variation is after how long does one sell their home post home improvement. This variable captures the depreciation effect of aging of the existing and the additional building value created through improvement. Another potential source of variation in the returns could be the land area. Due to the sparsely available information on land area, we use number of beds, baths and cars to proxy for the land area. As our model calculates returns on notional purchase price, any variations in returns between purchase and point of DA are already captured in the expected price using the SSD index and therefore the time to DA does not contribute to model identification. 
+
+Once the common sources of variations between improved and unimproved homes are controlled for, the difference in the returns would then only be attributable to the home improvement. Hence in order to identify that variation, we simply use a binary dummy variable to capture the differences in the returns between improved and unimproved homes.
+
+Table \ref{tab:results} shows the estimation results for different model specifications\footnote{Robust standard errors are reported in parenthesis and the significance of the variables is adjusted according to the robust standard errors}. 
+
+\clearpage
+\newgeometry{margin=1in}
+\input{Tables2/Results2.tex}
+\restoregeometry
+
+All model specifications allow for year and location fixed effect. Since the returns are modelled in log form, the actual interpretation of coefficients is ($e^{\hat{\beta}}-1$). The estimated coefficients are close to actual for small values of $\hat{\beta}$.  Model 1 is the basic model with house price log returns regressed only on the market index and no controls. The coefficient on the MktReturn is 0.749 which indicates that 75\% of the appreciation in the house prices is due to the market. Model 2 includes the property attributes at the time of resale and model 3 includes the property attributes for both, at the time of resale and purchase. The coefficients on both, purchase and resale attributes are significant, with values for number of beds, baths and cars at resale as 2.6\%, 5.8\% and 0.4\% and -3.2\%, -6.2\% and -1.5\% at time of purchase respectively. This indicates that, other factors constant, the return is higher if one buys a smaller house and sells a bigger house and vice-versa. In model 3, we see that the variation captured by the market returns has improved to 80\%. 
+
+In model 4, we include age as a linear term while in model 5 we include age as a quadratic term. The age captures the depreciation effect of the property attributed to the non-durable consumption. The coefficient on age in the linear form indicates that the returns on the property decreases by 0.1\% every month due to the depreciation. In the quadratic form, the coefficient on age is -0.2\% while the coefficient on squared age is positive. Since the age is measured in months, the coefficient on the quadratic term (the curvature) is quite small but statistically significant and therefore we include the squared term in the full model. The coefficients in the attributes at the time of purchase and resale are consistent with the previous models. Also the variation in the returns captured by the market appreciation further improves to 92\%. 
+
+Models 1 to 5, present returns for each of the home improvement types, relative to unimproved homes. Models 5 is a full model with control for market appreciation and other attributes. Depending on the model specification, the returns on each of improvement types are not attributed to the market appreciation and other attributes as they are already controlled for explicitly. Also any omitted or unobserved (deterministic) factors will be captured in the constant. Hence the returns on each of the improvement types are over and above the returns for unimproved homes. 
+
+The results show that the returns for carports are negative and mostly insignificant across models specifications. The coefficient on duplexes, in the full model, suggests that the return for a duplex is 9.8\% higher than the unimproved homes. Also, across all models, the results for duplexes are consistently positive and significant ranging between 8.4\% to 18\%. For Extension/Alterations, the returns are insignificant across models with controls. In case of House/Single Dwelling, the returns are consistently negative and strongly significant in all model specifications. The full model coefficient on House/Single Dwelling is -0.10 indicating that the returns for House/Single Dwelling is around 10\% lower than unimproved homes. For Multiple DAs, on average, the results are mostly negative and significant across models. In the full model, the return on Multiple DAs is 1.1\% lower than the unimproved homes. In case of Swimming pools, when there is no control for attributes at the time of purchase, the returns are almost 18\% and 14\% higher than unimproved homes. However when we control for the purchase attributes, the returns become insignificant. And when we include depreciation, the returns are marginally positive and significant at 0.4\%. For verandas/pergolas, the returns are mostly negative and strongly significant. In the full model, the return on verandas and pergolas is 3.8\% lower than unimproved homes.
+
+The model 1 does not have any control attributes and therefore it assumes that all properties are bought and sold are of the same size. Model 2 controls for the attributes at the time of resale and therefore assumes that all homes bought are of the same size. And in model 3, we control for the size at both, the time of purchase and resale. However, although we account for the size of the house using number of beds, baths and cars, the size in terms of land area could still vary significantly and therefore have some unidentified variations in returns. 
+
+The attributes at the time of resale are likely to be higher than the time of purchase, if the homeowner carries out development, or remain the same if they do nothing. In models 3, 4 and 5, we have both, attributes at the time of resale and purchase and therefore they are quite likely to be correlated. Hence, we also examine the model with alternate specification, in model 6, where we take change in the corresponding attributes. This way we avoid the problem of multi-collinearity. However, due to change in attributes, we loose valuable information on the absolute level of attributes which serves as a proxy for the land area. Implicitly, this model assumes that returns for a homeowner who buys a 1 bedroom and sell a two bedroom will be the same as for someone who buys a two bedroom and sells a three bedroom house as the change in no. of bedrooms is the same in both cases. Hence, we present the results on both model specifications as they have their own merits.
+
+The finding in the alternate model specification are also consistent with overall results. The returns on carports/garages/sheds and verandas/pergolas is 2.5\% and 4.2\% lower than the unimproved homes respectively. For Duplex the returns are 10.1\% higher than unimproved homes. For extension/alteration and swimming pools, the returns are not significantly different from unimproved homes. In case of House/Single Dwelling, the return are strongly negative by 10.2\% as compared to unimproved homes. Finally, for multiple DAs, the average returns are 4.2\% below unimproved homes. The coefficient on the mktreturn is 92.2\% same as the model 5. The change in no. of beds, baths and cars are all positive indicating that greater the difference between size of the house before and after improvement, higher are the returns. 
+
+Overall, across different home improvement types, we find that the returns for carports/garages/sheds, multiple DAs and verandas/pergolas are negative relative to the unimproved homes while for house/single dwelling, the return is strongly negative. The returns for extension/alterations and swimming pools is not significantly different from unimproved homes. In contrast, the return for duplexes is strongly positive.
+
+One of the reasons that explains why the returns on house/single dwelling, is strongly negative is the high opportunity cost. In building a new house, unlike extension/alteration where the homeowner produces additional housing by building on top of the existing value of the building, the homeowner needs to demolish the exiting building and then build the house from the scratch and therefore in the process looses the entire residual value building $B_0$ (the non-durable consumption value) plus the value of housing service $H_0$ (durable consumption). 
+
+According to \citet{potepan1989interest}, there are technological constraints, for example, the presence of existing housing constraints the home improvement by impeding the application of certain construction techniques common in new housing production. For relatively modest increases in housing demand, this technological difference is probably negligible. For sizable increases, this technological constraint results in higher average costs in home improvement. Therefore in building the new house there is some inherent value due to the efficiency gains as compared to extension/alterations. Hence, the losses in building the new house are reduced to the extent of the efficiency gains availed from lack of impediment.
+
+Like building a new house, duplex also has high opportunity cost as it also requires to demolish the old property and therefore loose all residual value of the existing building. But the returns on duplexes much higher than the unimproved homes? The is because of the land split. All the properties that are converted into a duplex as part of improvement, are purchased as a single block of land that was originally for single family dwelling. When applying for development application for duplexes, homeowners could split the block of land and convert it to a dual occupancy use\footnote{For example, if the original property is on 1/13 Cragg street, then after the split the two duplexes will be addressed - 1/13 and 1A/13 Cragg Street.}. Now homeowners are able to build two identical duplexes for two single families. The homeowners can sell one duplex and reside in the other or sell both\footnote{if the homeowner sells only one duplex then we only have observed record and if they sell both, then we just take one record and double the resale price.}.  Either way, the homeowners have created twice as much equity from selling two duplexes. However the resale price observed in the data set corresponds only to one duplex\footnote{This is because if the other duplex is not sold or valued or financed, then that duplex is not recorded in CoreLogic database}. Therefore for duplexes, we double the resale price to adjust for the double equity. Hence, the return on Duplexes are strongly positive although partly offset by the losses due to lost residual value.
+
+When homeowners carry out alteration/extension, the fundamental cost of the improvement they should pay for is the cost of building materials plus the labour cost. With the completion of development, there is an additional value of housing service produced for the homeowners which is unobserved at that time but observed implicitly at the time of resale. Some portion of this expected value created from home improvement is priced into the cost of development. This could also be the contribution factor for why the returns for alteration/extension is insignificant.
+Apart from this there is some portion of the building value that is depreciated away and therefore we find, insignificant profits after controlling for market appreciation. In case of swimming pool, in addition to the reasons discussed for extension/alterations, the insignificant returns can be attributed to the perceived cost of operating the swimming pool on a regular basis and therefore, depending on the preferences, prospective buyers may not value the utility of the swimming pool and therefore the homeowner may not get a better resale price.
+
+Models 7 and 8 are the aggregate level results corresponding to model specifications 5 and 6 respectively. The coefficient on DA dummy represents the returns for improved homes relative to unimproved homes. On average, we find that, based on model 7 and 8, the returns for improved homes are on average 1.9\% and 2.4\% lower than the unimproved homes respectively. Therefore homeowners who do nothing are relatively better off than those who improve their homes. 
+
+\clearpage
+\section{Further Analysis}
+
+In the previous section, we compared the returns for all improved homes with unimproved homes and found that the returns for improved homes is lower than unimproved homes. In this section, we perform further analysis to examine how the returns for homeowners with an investment motive perform for improved homes with respect to the unimproved homes. People who buy and sell the property within 2 years are likely to have an investment motive at the onset\footnote{We take two years as a good approximation for home buyers intention to buy the property with an investment motive. Any longer period increases the chances that the homeowner did not buy the property with a view of investment but rather bought the property for self consumption.} and therefore we identify homeowners that buy and sell the property within 2 years as investors and those who buy and sell in more than 2 years as non-investors. 
+
+\input{Tables2/Results_s0_investor_da_interaction.tex}
+
+For the homeowner with improved homes, we classify investors into two types. Investor type I are those who have an investment motive right at the onset and therefore buy the property, improve and then sell within 2 years of buying\footnote{homeowner who buy with an investment motive of renting the property and sell in more than 2 years from buying are treated as non-investors since the income they generate is equivalent to someone else consuming the property on owner's behalf.}. Investor type II are those homeowners who buy the property not with a view to sell the property in the near term but to live and consume the housing service and at some point later improve the property and then sell it within 2 years of improvement. These investors are those who improve and then sell in less than 2 years\footnote{The time of 2 years is calculated from the date of DA approval and not the completion of home improvement as this time closely represents the time of their decision to improve and most probably their intent to sell post improvement.} from the time of improvement. 
+
+\subsection{Investor Type I}
+
+Table \ref{tab:results_s0_investor_da_interaction} shows the results of the model for investor type I and non investor groups. DA is the dummy variable equal to 1 for improved homes and 0 for unimproved homes. Investor equals 1 if time between actual purchase and resale is less than 2 years and 0 otherwise. DA*Investor is the interaction term. Models 1 and 2 are the full model specifications at aggregate level with interaction terms. The coefficient on other model variables are all consistent with the main model results.
+
+In models 1 and 2, for homeowners who are non-investors, we find that results confirm our main findings. The returns for improved homes is 2.1\% and 2.5\% lower than unimproved homes respectively. However, for the investor group, we find that the returns for improved homes are significant and higher than unimproved homes by 0.4\% (-0.021 + 0.025) and 0.1\% (-0.025 + 0.026) respectively.
+
+If we compare across investor and non-investor group, for unimproved homes, the return for investor group is 0.7\% higher than the non-investor group in both model specifications 1 and 2. If we look at improved homes, then the returns for investor is 3.2\% (0.007 + 0.025) and 3.3\% (0.007 +0.026) higher than non-investors respectively.
+
+The homeowner who do not improve their home and buy and sell within 2 years have higher returns than those who buy and sell in more than 2 years. Therefore the gap between returns of investor and non investor group is much higher for improved homes than unimproved homes. This suggests that, in contrast to the main results, homeowners who have investment motive and improve their homes are better off than homeowners with investment motive but do not improve their home.
+
+In table \ref{tab:results_s0_investor_da_type}, we split the results by improvement types focus on investors only. We present the findings in models 1 to 6 that correspond to the model specifications in the main results. The results show that returns for carports/garages/sheds has improved from significantly negative in the main results to being not significantly different from unimproved homes. The returns for Duplex is mostly around 8\% higher which is similar to the main results where the duplex return is around 10\% higher than unimproved homes. 
+
+\input{Tables2/Results_s0_investor_da_type.tex}
+
+The key contributor to the positive returns for investor group comes from extension/alterations where the returns are, positive and more prominent, around 5\% higher than unimproved homes. This is in contrast to the negative or insignificant returns in the main results. Most investors who buy with an investment motive, carry out home improvement and sell within 2 years, would typically extend the number of bedrooms or bathrooms. Therefore the results are in line with the expectations and also explains why most most homeowners (flippers) with investment motive would add a bedroom or bathroom and then sell their homes quickly thereby making positive returns. This is also evident from the coefficient of bedrooms and bathroom in models 3, 4 and 5, where the coefficients at the time of purchase and resale are negative and positive respectively indicating that the returns increase with a purchase of smaller and sale of a bigger house.
+
+The returns for house/single dwelling, in the investor group are still significantly negative ranging from -10\% to -15\%. This result is also aligned with our justification provided in the main result section that the new house build have huge opportunity cost of residual value of the building and housing service and therefore the returns are consistently and strongly negative. This also explain why typical investors would not buy a property and build a new house and sell in less than two years. Most homeowner build a new house for their own residential purposes with a long term view. Buying a house to demolish and build a new house and then selling in the short run seems like a poor strategy.
+
+For multiple DAs, the return has improved from being significantly negative to insignificantly different from unimproved homes. For swimming pools the results show that the return for improved homes are mostly insignificant across models and consistent with the main findings. This is because swimming is typically not the improvement type that homeowners with investment motive invest into. Like extension/alterations the return for verandas/pergolas has improved from being significantly lower to insignificantly different from unimproved homes. Overall, the results suggest, for the homeowner with investment motive, extension/alteration is the key instrument to make profits.  
+
+\subsection{Investor Type II}
+
+\input{Tables2/Results_s0_investor2_da_interact.tex}
+
+For investor type II - where the homeowner buys the property, carries out home improvement and then sells within 2 years of home improvement\footnote{The homeowner who buy and sell within 2 years of buying are excluded from the investor type II group as they are already covered in investor type I group analysis} - the aggregate level interaction results for full model specifications model 1 and 2 are presented in table \ref{tab:results_s0_investor2_da_interaction}. 
+Also if we look across investor and non-investor groups, for unimproved homes, returns for investors is 0.4\% higher than non-investor. This result is consistent with the type I investor results (0.7\%). Since the investor group for unimproved homes in both cases is identified in the same way. i.e. time between purchase and resale is within 2 year, it is expected. Now, in case of improved homes, the returns for investor is 3.8\% (0.004 + -0.042) and 3.6\% (0.004 + -0.040) lower than non-investor, in both models respectively. All other variables coefficients are consistent with the main results.
+
+Table \ref{tab:results_s0_investor2_da_type} present results split by improvement types for model 1 to 6 for investors only. The results for carports in full model specifications 5 and 6 is 2.4\% (insignificant) and 2.8\% lower than unimproved homes. The results for duplex is positive around 5.5\% higher than unimproved homes but it is lower than the positive returns in main results and investor type I results. For extension and alterations, the returns are lower by around 3\% than unimproved homes and this much lower returns as compared to the main results. For house/single dwelling also the returns for improved homes is below unimproved homes by around 22\% and far lower as compared to main results where the returns were lower by around 10\%. For Multiple DAs, the returns are around 5\% lower as compared to main results where returns were around 1\% lower. In case of swimming pools, the return is 1.6\% lower (weakly significant) as compared to main results where the swimming pool returns are insignificantly different from unimproved homes. Finally for verandas/pergolas, the return are 7\% lower compared to around 4\% lower in the main results. Overall we find that the returns in case of type II investors is not only worse than the type I investors but is also worse than the main results.
+
+\input{Tables2/Results_s0_investor2_da_type.tex}
+
+%\input{Tables2/Results_s0_investor1.tex}
+%\input{Tables2/Results_s0_investor2.tex}
+
+%\input{Tables/markup_model_descriptive_stats.tex}
+%\input{Tables/markup_model.tex}
+%\input{Tables/markup_model_interactions.tex}
+%\input{Tables/markup_model_interactions_compact.tex}
+%\input{Tables/markup_model_post2004.tex}
+%\input{Tables/markup_model_non_investor.tex}
+
+
+\begin{comment}
+
+The results show that, on average, homeowners are overcapitalized on their home improvement spending. This pattern holds across a variety of model specifications
+with different control variables. 
+In the first three specifications, the dependent variable is the dollar amount
+of home improvement and maintenance spending. In a sparse regression
+model with only state-year fixed effects to absorb common regional variation
+
+in spending and housing leverage, I estimate that negative-equity homeowners
+spend \$282 less on improvements. In the second model, which includes
+additional controls for household, housing, and mortgage characteristics, I find
+that negative-equity homeowners spend \$205 less on their home. Finally, after
+adding linear controls for mortgage balance and property value, I estimate \$195
+lower spending by negative-equity homeowners. This estimate implies 28% less
+592 The Journal of Finance
+improvement and maintenance spending relative to positive-equity homeowners,
+who spend on average \$702 per quarter.
+
+These findings are quite robust to alternative assumptions about functional
+form. As a proportion of total household spending, improvement and maintenance
+spending is 76 basis points (or 25\%) lower among negative-equity homeowners.
+In a specification with log expenditures as the dependent variable, the coefficient on the negative-equity indicator is –0.27, which implies 24\% ($= e^−0.27 − 1$) lower improvement spending among homeowners with negative
+equity.17 Similar findings hold for a model that ignores the dollar amount of
+spending and instead examines whether the homeowner makes a positive expenditure.
+The OLS, or linear probability, estimates for this specification show
+that homeowners with negative equity are four percentage points (or 17%) less
+likely to spend money on improvements and maintenance. This result confirms
+that measurement error and outlying values for improvements are not obscuring
+the main result. Finally, a Tobit specification (Tobin (1958)) that accounts
+for left censoring of spending at zero confirms the sign and magnitude of the OLS estimates. The Tobit marginal effect shows that negative-equity owners spend \$227 less than positive-equity owners
+
+
+\end{comment}
+
+
+
+\section{Robustness}
+
+\subsection{Repeat Sales Index}
+
+In the main results model, we calculate the log returns for each property $i$ and then model the returns in a cross-sectional framework. The variations in returns attributed to time between sales was captured by the age variable and the variations over time were controlled by the year fixed effects which assumes that the effect of home improvement captured by the DA dummy are same each year. Therefore, in order to test the robustness of the results over time, we build a basic repeat sales index at monthly level for both, improved and unimproved properties using \citet{bailey1963regression} (BMN) methodology for the period 2004-2016. In the BMN repeat sales index model, the specification takes the following general form.
+\begin{equation}
+    R_{itt'} = \sum\limits_{j=1}^{T} b_jx_j + \epsilon_{itt'}  
+\end{equation}
+or in matrix notation: $$r = xb + \epsilon$$
+where, $R$ is the log returns of resale price over notional purchase price. $x_j$ is a monthly dummy coded as '-1' only if the property was purchased in period $j = t$ (year,month), +1, only if the property was sold in the period $j = t'$ (year, month) and zero otherwise. $j$ is from period 2004-03 to 2016-07. 
+\begin{figure}[!htb]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/Repeat_sales_index_post_2004_notional_purchase.png}
+ \caption{Repeat Sales Index (2004-2016) - DA vs Non-DA}
+ \label{fig:BMN_RS_index_post_2004}
+\end{figure}
+
+The coefficients $b_j$ on each of the dummies corresponds to the log value of the index. Therefore, we take anti-log of the regression estimates to get the raw index values. Finally, we re-base the index for the starting point - March 2004 to 1 and apply the consecutive period growth rate of the raw index to the current index value, starting from the base period - March 2004.  $\epsilon$ is the random error term in the log form with zero mean and constant variance. The notional purchase price for unimproved homes is the actual purchase price, while the notional purchase price for modified homes is the expected price at the time of DA plus the cost of development. 
+
+%\input{Figures/Distribution_prev_cur_sale.tex}
+Figure \ref{fig:BMN_RS_index_post_2004} shows the repeat sales index for unimproved properties and improved properties before and after cost adjustment. The results show that, over time, the house prices for improved properties have appreciated much more than the unimproved properties. However when we account for the improvement spending, the house price appreciation is lower than unimproved homes. So, for example, if both improved and unimproved properties are bought in 2004 and sold any time until 2016, the house prices for improved homes are constantly below unimproved homes. Therefore, over time, the returns, on average, are lower than than the unimproved homes. This is consistent with and confirms our main findings.
+
+Since our data uses only repeat sales records, some of homes that have done improvement may not have sold yet and therefore they do not form part our data set. Hence we see that the home improvement volumes are stable from 2004 to 2010 period and then start to decline. We also see that the repeat sale index before cost adjustment is initially lower than unimproved homes. This is because there are not many observations where properties have have been bought, improved and sold in the initial few years. As the time period increases the number of observations also increase and therefore we start to see more prominent effect after the initial few years where the price appreciate at a faster rate than unimproved homes.
+
+  
+\subsection{Location Fixed Effect - Statistical Subdivision Level}
+
+The main model controls for the geographical factors affecting the returns using the state fixed effects. However the house prices could vary significantly even within the state. For example, in NSW, house prices in capital city - Sydney could be considerably higher than prices in rest of the NSW. Since we model the returns, these variations in house prices should cancel out each other. Nonetheless, the geographical factor at lower level than state could still affect variations in the returns. Therefore we test the main results by controlling for the geographical factors at statistical subdivision (SSD) level.
+
+Table \ref{tab:results_ssd} presents results for models 1 to 8 with SSD level location fixed effects. In models 7 and 8, we find that the results are consistent with the main results. The return, at aggregate level, for improved homes is 1.9\% and 2.4\% lower than unimproved homes respectively. 
+
+\newgeometry{margin=1in}
+\input{Tables2/Results_SSD.tex}
+\restoregeometry 
+
+When we look at by improvement types, the returns, as per models 1 to 6 are generally consistent with the main results. The coefficient for carports/garages/sheds is mostly insignificant. The returns for duplex is around 9\% higher than unimproved homes which is also consistent with the main results.
+
+For extension/alterations, the returns were insignificant in the main results, however when we control at SSD level location fixed effects, the coefficient becomes significant around -1\%. For House/Single Dwelling, Multiple DAs, swimming pool and verandas/pergolas, the returns are consistent with the main results, around 11\%, 1.5\%, 0.7\% and 2.7\% lower than unimproved homes respectively. We also note that after controlling for location effects at SSD level, the mktReturn variable captures around 95\% of the variation in the returns as compared to 92\% with State level fixed effects.
+
+\subsection{Council Restriction Bias}
+
+In the main model results, our control sample included properties from all the suburbs. However, there could be a few councils that do not disclose development application data and therefore Cordell would not have a record all the homes with development approvals. As a result, our control sample of unimproved homes may incorrectly include some properties that have a development approval and have subsequently carried out home improvements. This could potentially bias our main results, as for those properties, we would have the value of home improvement implicitly accounted for in the resale price while the costs of improvement would be ignored. 
+
+Hence to rule out this bias, we use a self-selection method to identify unbiased control group. At the suburb level, we find all the areas where we have at least one improved home record available and then we take all the unimproved properties from those suburbs only. This way we ensure that all the properties in the control sample are from suburbs where council restriction don't apply. Using this self-selection technique, out of \~1.08m records of unimproved homes, we have around 60,438 records that are excluded from the control sample leaving us with \~1.02m records. 
+
+Table \ref{tab:results_s1} shows the results, based on this control sample and we find that the estimates are robust and consistent with the main results. Full model specification 7 and 8 show that the returns, at aggregate level, for improved homes are 2\% and 2.4\% lower than unimproved homes. Also when we split the returns by improvement types the results are generally consistent with the main results. Return for carports is around 2.1\% lower than unimproved homes. For duplex the return is 9.7\% higher. The return for extension/alteration is insignificantly different from unimproved homes. The coefficient on house single/dwelling is negative 10\%. Multiple DAs has coefficient of -1.2\% (weakly significant). Swimming pool is insignificant and verandas/pergolas has 3.8\% lower returns.
+
+\clearpage
+\newgeometry{margin=1in}
+\input{Tables2/Results_s1_2.tex}
+\restoregeometry
+
+\clearpage
+\newgeometry{margin=1in}
+\input{Tables2/Results_s1_prev20042.tex}
+\restoregeometry
+
+\subsection{Including Improved Homes Post 2004}
+
+Since Cordell has data on development approvals available from 2004 onward, we cannot identify if the properties were improved or not prior 2004. Therefore for the reference group - unimproved homes, we take homes purchased post 2004 only. For treatment group however, we take properties purchased post 1990. Also since these are classified as improved homes, there will be relatively a smaller portion of properties that may have carried out additional improvement prior 2004. Any value attributed to the improvement prior 2004 will be implicit in the resale price but the improvement cost prior 2004, would not have been accounted for and therefore, in aggregate, the cost of development for improved homes would be underestimated for such properties only and, in aggregate, make the estimates even more negative. Therefore it does not affect our main analysis adversely. Also, in the interest of having a reasonable sample size, we take all the properties in the main analysis.
+
+However, as part of robustness, we test the results to ensure that the estimates are consistent and stable by excluding the homes purchased prior 2004 for improved homes as well. To make the model more robust, we also exclude the properties from the reference that may induce council restriction bias. Table \ref{tab:result_s1_prev2004} shows the results after excluding improved homes that were bought before 2004. We find that the results are all consistent with the main results.
+
+\clearpage
+\subsection{Return of Improved Homes for Investors by no. of years between sales}
+
+In further analysis, we find that the returns for type I investors is higher for improved homes when we classify the investor as time between purchase and resale less than 2 years. In figure \ref{fig:relative_returns_by_investor}, we plot the estimates profile for returns on improved homes relative to unimproved homes by filtering data for each of the groups i.e. from less than 2 years up to less than 24 years. 
+
+\begin{figure}[!ht]
+    \centering
+     \includegraphics[width=0.9\columnwidth]{Figures/relative_returns_by_investor.png} \par
+ \caption{Estimates for Investors classified by no. of years between sales}
+ \label{fig:relative_returns_by_investor}
+\end{figure}
+
+
+We see that for less than 2 years i.e. for the investor type I, the returns are positive and as we increase the period between purchase and resale there are more homeowners, included in the regression, who are probably owner occupiers and unlikely to have investment motive at the onset. Therefore, we see that the returns start to become negative relative to unimproved homes. As we increase the number of years between sales further, the estimates stabilize and converge to the overall mean. 
+
+
+
+\subsection{SSD Index Validation}
+
+To calculate the expected house price at the time of development approval, we use the statistical subdivision level house price index as provided by CoreLogic. Since all the properties have sales prices observed at least twice, we leverage the repeat sales information, to test whether the house price index is a good predictor of the market appreciation. We calculate the expected house price at time resale i.e at t = +1 and then calculate the percent prediction errors as $E(P_{+1})/P_{+1} - 1) * 100$. Finally, we plot the density, cumulative density function, QQ and PP plots of percent prediction errors as shown in the figure \ref{fig:Rplot_ssd_err_10}. 
+
+\begin{figure}[!htb]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/Rplot_qqplot.png} \par
+ \caption{House Price Index Prediction Error Distribution}
+ \label{fig:Rplot_ssd_err_10}
+\end{figure}
+
+We see that the percent prediction error has a symmetric distribution around the mean and is heavily centered around zero. The bell shaped curve represents the normal distribution. The cumulative density fits the normal density. Also in the QQ plot and PP plot, the densities are similar to theoretical densities.
+
+
+\section{Conclusion}
+
+This paper explores and compares an important economic decision faced by homeowners on the returns of improved homes relative to the unimproved homes. Using a combined data set of house prices and development applications, we test if the returns for improved home is better than unimproved homes. We find that the returns for improved homes, in aggregate, is lower than unimproved homes by around 2.4\%. If we split by improvement types, we find that the highest loss is in building a new house/single dwelling with around 10\% lower returns than unimproved homes. This is mainly attributed to the opportunity cost of lost building value. Carports/Garages/Sheds has around 2.5\% lower returns while verandas/pergolas has around 4.2\% lower return. The return on extension/alteration and swimming pool is not significantly different from unimproved homes. For Duplex, the returns are higher than the unimproved homes by around 10\% and this is due to the double equity generated from the land-split.
+
+In a further analysis, we also examine how the returns compare for the two types of investors and the owner occupiers who buy for their own personal living. Type I investors are classified as those who buy and sell within two years and type II are those homeowners who buy and sell in more than 2 years but invest at some later point to improve their homes and then sell within two years of home improvement. We used an interaction variable between investor and DA dummies and at aggregate level, we find that the returns for improved homes for type I investors are higher than unimproved homes by around 0.4\%. The positive change in the main result is much more prominent in the extension/alteration - around 5.4\% higher than the unimproved homes compared to the insignificant returns in the main results. This explains why typically investors mainly would perform extension/alterations as part of their investment strategy. The returns on carports and verandas/pergolas has also improved from negative to being insignificant. 
+
+In contrast, for type II investors, in aggregate, we find that the returns for improved homes are lower than the unimproved homes by around 1.2\%. When we condition on data, where time between improvement and resale is less than 2 years and split by improvement type, we see that the returns across improvement types have reduced as compared to the main result. This is because the reference category - unimproved homes in both the analysis - investor type I and investor type II, is conditioned by the time between purchase and resale as less than 2 years. Therefore, since, the return for investor group in the reference category - unimproved homes, on average, higher than the non-investor group, the returns on improved homes are even lower. The return on Duplex is reduced from around 10\% to 5.5\%. The return on Extension/alteration has gone from being insignificant to negative 3\%. The returns on house is reduced further to around 22\%. Verandas/Pergolas also reduced to 7\% lower returns. 
+
+So overall this suggests, that homeowner with investment motive who bought and sold the property in less than 2 years have higher returns from home improvements while those home owners who owned the property for more than 2 years but carried out home improvements less than 2 years from selling the property did not make higher returns. So this suggests that the time between sales is the key variable that enables identification of homeowners with investment motive. And homeowners who have investment motive make higher returns and those who are non-investors have lower returns. 
+
+This can be attributed to several factors - since these homeowners have owned the property for relatively longer period (a) They have consumed relatively more value of being able to reside in the property in the form of rental component that is attributed to the housing service. (b) depreciation - homeowners have also relatively consumed more non-durable consumption component in the form of wear and tear of the building. (c) Finally, they also enjoy the profits from house price appreciation mainly attributed to the land value and therefore at the time of resale, they are more psychologically willing to settle for reduced profits.
+(d) Finally, they are operating in the long run and therefore they are less likely to have an investment motive right at the beginning i.e. at the time of purchase and hence their choices and decisions are more guided by the social benefits rather than the financial returns. For example, a rational investor would probably add a smaller bedroom or bathroom as there is diminishing returns to housing, whereas the owner occupier would choose the size of the bedroom/bathroom based on his desires and affordability. Therefore, an investor would have make more financial gain, while, owner occupiers, on the other hand consume the non-monetary benefits and probably the relative loss that we estimate in our results is the cost of social benefits that non-investors consume. In a simplistic sense our, paper models and explores the returns on two basic options - do nothing or improve. However, the homeowners may also face another option and that is - switching to a new desired home. Comparing the returns between improving or switching could be an avenue for future research.
+
+
+
+\begin{comment}
+
+
+
+Also when we look at the estimates profile for investor classified by groups - time between purchase, there is a consistent pattern. The returns are positive returns when the the time between purchase and resale is less than 2 years and as the period increases to less than 3 years and more, the homeowners are less likely to have investment motive and the returns decline initially and then gradually stabilize to the overall mean
+
+
+
+if we note that there is no differnce in in returns between type i and type II investor in duplex and house/single dwelling. A major attribution of profits from Duplex would come from double equtiy generated from land split which shoudl be same for bopth groups, likewise a major attribution of losses in houses is from destroyed residual value and these attribution will remain the same acrross investor groups. and that explains why these coefficient are stable in all groups..
+
+you would make money irepsective of being type i ivnestor or type 2 or owner occupier.
+
+So why is it that the investors are making more money...by splitting group by 2 year odf buy and sell, we are able to reasinablly separte the group of homeonwers who would have investment motive right at the time of purchase. and therefore their choices or or decisions would be affected accordingly. For example  children and family..
+
+if homeowner buy and sell within 2 years time, then they are most likely to have an investment motive right at the begining. Due this investment motive the choices, decision and preferences are affected and significantly vary from those owner occupier home owners. For example, an investor, wuld invest in an area where there is likely appreication due. whereas an owner occupier may want to buy the house depending on the distnace to his workplace. this is the part of the reason that affect the return. 
+
+
+
+
+
+
+
+\end{comment}
+
+
+
+
+
+
+
+
+\begin{comment}
+
+
+ 
+Before considering the impact of different type of developments on economic outcomes, we find that households are on average, over capitalized on their investments in the long run. This may be the key signal to potential investors. Table diff in diff shows that the house price is strongly negatively correlated with the post treatment dummy indicating the appreciation rates are lower for properties with DA than with non DA
+
+
+
+Yes, the results are quite interesting and it turns out to be in line with our model results as well. I have added the volumes for DA in Fig -1 and provided the previous and current sales volumes distribution in fig 2.
+Based on our DA data, we see from the figure 1 below there is a lot of DA activity around 2004 -2010 period. 
+The current sales volumes in 2nd figure shows that the current sales (distribution on the right) have increasing volumes from 2005 - 2016 period, and given that the value of the DA will only be captured at the point of repeat sale, we only start to see the effect of DA value in the recent years with prices for DA homes, before adjusting for cost, crossing over the the non da properties around 2012-2013. But after accounting for the DA cost, the da home prices are still below the Non-DA.
+A possible reason, why DA home prices remain below non DA prior 2004 (we only have a handfull of observations from 2000 - 2004) is because the DA homes on average may be of poorer quality than non-DA homes anyways. Also DA home prices remain below non-DA from 2004 - 2013 is probably due to the fact that there are not enough observations for DA in earlier periods and as a result we do not have enough repeat (current) sales observations during 2004 - 2013 period. 
+So as more and more repeat sales are observerd in the recent years for DA properties, the effect of DA on home prices w/ and w/o cost adjustment as compared to non-DA homes becomes more apparent and prominent.
+To rule out the sample selection bias due to the fact that properties may have carried out DA prior 2004 and it is not observed in our data, we can argue as 
+case a.   If the DA occurred before the previous sale then it does not matter to our analysis as we would have capture the repeat sale with right returns.
+For case b     when DA occured after the previuos sale then we would have captured the prices increase due to DA in the current sale as it is observerd. but we wouldn't have accounted for the DA cost. so as a a robustness check, I did a regression of the mark up model where I only take repeat sales where previous sale is from 2004 onwards, this allows me to ensure that I have properties with right classification of DA or non DA, and that we have accounted for the da cost where applicable. The results from regression, as in table 1 below, indicate that the coefficient of interest is still stable at 0.85.
+Also, I can run a robustness check in the DID model too. I can create a dummy for two phases prior 2004 and post 2004 and I can allow for the interaction term to vary for over the phases and check if the coefficient is compares for the entire period 1990 - 2016 with post 2004 phase. 
+
+
+
+\input{Figures/cs.tex}
+
+
+
+
+%\end{comment}
+
+
+
+\subsection{Difference-in-difference method and results}
+
+
+
+These results make sense \cite{Einstein05}  properties with re-investments seem to have lower return than the those with no developments. Since housing re-investments are main instruments for house flippers, this finding is compelling. Our next tasks are to check the robustness of these findings to a number of other specifications and to look at the appreciation rates for different building types.
+
+
+  
+  library(AER)
+  library(lmtest)
+  m <- ivreg(markup ~ value_index_cur_sale_sum + age_da_min + contract_date + max_beds_cur + max_baths_cur + max_cars_cur + max_beds_prev + max_baths_prev + max_cars_prev + building_type_compact2 + state  | area + age_da_min + contract_date + max_beds_cur + max_baths_cur + max_cars_cur + max_beds_prev + max_baths_prev + max_cars_prev + building_type_compact2 + state , data = subset(da_rs_final_duplex_139k, group1 == 'A' & vacant_b_max ==0 & vacant_s_max ==0 & vacant_bs_max ==0 & duplex==0))
+  ummary(m, vcov = sandwich, diagnostics = TRUE)
+
+
+\end{comment}
+
+
+\bibliographystyle{aer}
+\bibliography{sample}
+
+
+\appendix
+
+\clearpage
+\section{Appendix A}
+
+\begin{figure}[!h]
+    \centering
+     \includegraphics[width=\columnwidth]{Figures/Cm_ct_times.png} \par
+ \caption{Average Commencement and Construction times (Days)}
+ \label{fig:Cm_ct_times}
+\end{figure}
+
+
+
+
+%\input{Tables2/Results_DA_only_sample.tex}
+
+
+
+
+
+
+
+\end{document}
+
