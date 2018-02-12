@@ -3,16 +3,15 @@
 % Requires LaTeX packages: dcolumn rotating 
 
 
-\begin{sidewaystable}[!htbp] \centering 
+\begin{table}[!htbp] \centering 
   \caption{Main Model Results} 
-  \label{tab:results} 
-  \resizebox{0.9\textwidth}{!}{
-  \begin{threeparttable}
-\begin{tabular}{@{\extracolsep{5pt}}lHHD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+  \label{tab:results_only_4} 
+  \resizebox{0.8\textwidth}{!}{
+\begin{tabular}{@{\extracolsep{0pt}}lHHHH D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
 \\[-1.8ex] 
 \toprule \\[-1.8ex] 
 \\[-1.8ex] & \multicolumn{8}{c}{Log(Resale Price/Purchase Price (Notional))} \\ 
-\\[-1.8ex] & \multicolumn{1}{H}{(1)} & \multicolumn{1}{H}{(2)} & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)}\\ 
+\\[-1.8ex] & \multicolumn{1}{H}{(1)} & \multicolumn{1}{H}{(2)} & \multicolumn{1}{H}{(1)} & \multicolumn{1}{H}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)}\\ 
 \midrule \\[-1.8ex] 
  DA &  &  &  &  &  &  & -0.019^{***} & -0.024^{***} \\ 
   &  &  &  &  &  &  & (0.002) & (0.002) \\ 
@@ -79,29 +78,20 @@ Verandahs/Pergolas & 0.009^{**} & -0.001 & -0.039^{***} & -0.037^{***} & -0.038^
   %& & & & & & & & \\ 
 Year Fixed Effects & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\ 
 Location Fixed Effects & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes  \\ 
-Observations & \multicolumn{1}{H}{1,145,362} & \multicolumn{1}{H}{1,035,416} & \multicolumn{1}{c}{525,144} & \multicolumn{1}{c}{525,144} & \multicolumn{1}{c}{525,144} & \multicolumn{1}{c}{525,144} & \multicolumn{1}{c}{525,144} & \multicolumn{1}{c}{525,144} \\ 
+Observations & \multicolumn{1}{H}{1,145,362} & \multicolumn{1}{H}{1,035,416} & \multicolumn{1}{H}{525,144} & \multicolumn{1}{H}{525,144} & \multicolumn{1}{c}{525,144} & \multicolumn{1}{c}{525,144} & \multicolumn{1}{c}{525,144} & \multicolumn{1}{c}{525,144} \\ 
 
-Adjusted R$^{2}$ & \multicolumn{1}{H}{0.126} & \multicolumn{1}{H}{0.150} & \multicolumn{1}{c}{0.277} & \multicolumn{1}{c}{0.285} & \multicolumn{1}{c}{0.286} & \multicolumn{1}{c}{0.283} & \multicolumn{1}{c}{0.285} & \multicolumn{1}{c}{0.283} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{H}{0.126} & \multicolumn{1}{H}{0.150} & \multicolumn{1}{H}{0.277} & \multicolumn{1}{H}{0.285} & \multicolumn{1}{c}{0.286} & \multicolumn{1}{c}{0.283} & \multicolumn{1}{c}{0.285} & \multicolumn{1}{c}{0.283} \\ 
 
-F Statistic & \multicolumn{1}{H}{6,097.764$^{***}$} & \multicolumn{1}{H}{6,085.191$^{***}$} & \multicolumn{1}{c}{6,111.101$^{***}$} & \multicolumn{1}{c}{6,167.475$^{***}$} & \multicolumn{1}{c}{6,007.371$^{***}$} & \multicolumn{1}{c}{6,493.052$^{***}$} & \multicolumn{1}{c}{7,225.539$^{***}$} & \multicolumn{1}{c}{7,964.678$^{***}$} \\ 
+F Statistic & \multicolumn{1}{H}{6,097.764$^{***}$} & \multicolumn{1}{H}{6,085.191$^{***}$} & \multicolumn{1}{H}{6,111.101$^{***}$} & \multicolumn{1}{H}{6,167.475$^{***}$} & \multicolumn{1}{c}{6,007.371$^{***}$} & \multicolumn{1}{c}{6,493.052$^{***}$} & \multicolumn{1}{c}{7,225.539$^{***}$} & \multicolumn{1}{c}{7,964.678$^{***}$} \\ 
 
 
- & \multicolumn{1}{H}{(df = 27; 1145334)} & \multicolumn{1}{H}{(df = 30; 1035385)} & \multicolumn{1}{c}{(df = 33; 525110)} & \multicolumn{1}{c}{(df = 34; 525109)} & \multicolumn{1}{c}{(df = 35; 525108)} & \multicolumn{1}{c}{(df = 32; 525111)} & \multicolumn{1}{c}{(df = 29; 525114)} & \multicolumn{1}{c}{(df = 26; 525117)} \\ 
+Df & \multicolumn{1}{H}{27; 1145334} & \multicolumn{1}{H}{30; 1035385} & \multicolumn{1}{H}{33; 525110} & \multicolumn{1}{H}{34; 525109} & \multicolumn{1}{c}{35; 525108} & \multicolumn{1}{c}{32; 525111} & \multicolumn{1}{c}{29; 525114} & \multicolumn{1}{c}{26; 525117} \\ 
 
 
 %F Statistic & \multicolumn{1}{H}{6,097.764$^{***}$ (df = 27; 1145334)} & \multicolumn{1}{H}{6,085.191$^{***}$ (df = 30; 1035385)} & \multicolumn{1}{H}{6,111.101$^{***}$ (df = 33; 525110)} & \multicolumn{1}{H}{6,167.475$^{***}$ (df = 34; 525109)} & \multicolumn{1}{c}{6,007.371$^{***}$ (df = 35; 525108)} & \multicolumn{1}{c}{6,493.052$^{***}$ (df = 32; 525111)} & \multicolumn{1}{c}{7,225.539$^{***}$ (df = 29; 525114)} & \multicolumn{1}{c}{7,964.678$^{***}$ (df = 26; 525117)} \\ 
 
 \bottomrule \\[-1.8ex] 
-%\multicolumn{9}{p{1.2\textwidth}}{Robust standard errors are reported in parentheses, Significance of variables is adjusted accordingly. *** 0.1\% significance ** 1\% significance * 5\% significance. We have a total of 1,145,547 (55,733 for treatment and 1,089,814 for control sample) possible observation with deviation accounted for by missing data.} \\ 
+\multicolumn{9}{p{0.8\textwidth}}{Robust standard errors are reported in parentheses, Significance of variables is adjusted accordingly. *** 0.1\% significance ** 1\% significance * 5\% significance. We have a total of 1,145,547 (55,733 for treatment and 1,089,814 for control sample) possible observation with deviation accounted for by missing data.} \\ 
 \end{tabular}
-
- \begin{tablenotes}[para,flushleft]
-  \LARGE
-      Notes: Robust standard errors are reported in parentheses, Significance of variables is adjusted accordingly. *** 0.1\% significance ** 1\% significance * 5\% significance. We have a total of 1,119,419 (55,733 for treatment and 1,063,686 for control sample) possible observation with deviation accounted for by missing data.
-\end{tablenotes}    
-
-    \end{threeparttable}
-
-
 }
-\end{sidewaystable} 
+\end{table} 
