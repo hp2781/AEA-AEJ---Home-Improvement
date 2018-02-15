@@ -39,7 +39,8 @@
 %  http://pdf2docx.com/
 %\usepackage[doublespacing]{setspace}
 %\renewcommand{\baselinestretch}{2.0}
-%\draftSpacing{1.5}
+
+\draftSpacing{1}
 
 %********************PLEASE DO NOT CHANGE THIS SECTION***************
 
@@ -194,7 +195,7 @@ In case of DAs for the construction of a Duplex\footnote{A duplex is a dwelling 
 
 Given, a DA is a real-option provided to households that typically expires in one, two, four or five years, depending on the state. It is important to distinguish between homes that have and those that haven't exercised their DA option. If the property has not gone ahead with the development and included in our sample as improved home then we would have inadvertently included the improvement cost while the value of that improvement would be implicitly excluded from the resale price. This would result in underestimation of the returns for improved homes thereby causing a downward bias. In comparing attributes of the properties and identifying any changes conditioned on the type of DA works (i.e. If DA is for a car space, we look if there is an increase in the number of car spaces between pre- and post DA. For duplex, new house/single dwelling or extension/alteration, we check if the number of bedrooms or bathrooms have increased. In case of swimming pools, we confirm if the swimming pool flag is 'True' post DA), we are able to identify robust sample of improved homes\footnote{Attribute changes for verandas and pergolas are not confirmed as those attribute flags are not available. We assume that, considering relatively smaller outlay, households would have gone ahead with these constructions.}\footnote{For properties where attributes are missing, or remain unchanged between the time of purchase and resale, we cannot ascertain if the DA option is exercised and therefore exclude from the analysis.}.
 
-To ensure sufficient degrees of freedom, for our treatment sample we include properties that have a purchase data pre-2004 and resale data post 2004. While this creates the issue of not being able to tell if the properties have carried improvements prior 2004, it increases our sample from XX (using only post 2004 repeat sales) to 55,733 repeat-sales. If anything, this would bias our results in favour of DA providing better returns as it would not account for unrecorded home improvements\footnote{In order to ensure the estimates are stable, we also present the results after excluding the purchases prior 2004 for the treatment group as well in the robustness section}\footnote{We are able to increase our treatment sample to 200,208 if we assume all properties with DA approval completed works. We find similar results to those reported herein and are provided in appendix table A1.}. 
+To ensure sufficient degrees of freedom, for our treatment sample we include properties that have a purchase data pre-2004 and resale data post 2004. While this creates the issue of not being able to tell if the properties have carried improvements prior 2004, it increases our sample from 36,894 (using only post 2004 repeat sales) to 55,733 repeat-sales. If anything, this would bias our results in favour of DA providing better returns as it would not account for unrecorded home improvements\footnote{In order to ensure the estimates are stable, we also present the results after excluding the purchases prior 2004 for the treatment group as well in the robustness section}\footnote{We are able to increase our treatment sample to 200,208 if we assume all properties with DA approval completed works. We find similar results to those reported herein and are provided in appendix table A1.}. 
 
 
 \input{Tables2/Distribution.tex}
@@ -223,7 +224,7 @@ Figure \ref{fig:Rplot_month_bet_sale_notional} shows the distribution of time be
 
 \begin{figure}[!htb]
     \centering
-     \includegraphics[width=\columnwidth]{Figures/Rplot_time_bet_sales_notional2004.eps} \par
+     \includegraphics[width=\columnwidth]{Figures/Time_bet_sale_notional2004_after_ACT_NT_Rplot.png} \par
  \caption{Distribution of Holding Term for Improved and Unimproved Homes and Time of Sale relative to DA for Improved Homes}
  \label{fig:Rplot_month_bet_sale_notional}
  \caption*{\small Figure (a) and (b) show the distribution of holding term for improved and unimproved homes respectively. Figures (c) shows the distribution of time to DA i.e. After purchasing the home, how long does one wait to carry out home improvement and figure (d) shows the distribution of time to resale post home improvement i.e how long does one stay in their home after improvement.}
@@ -287,7 +288,7 @@ For improved homes, $Age$ is a measure of number of months between the developme
     \end{array} \right.
 \end{equation}
 
-where,$T_{i,+1}$ is the time of resale for property $i$, $T_{i,-1}$ is the time of purchase for property $i$, $T_{i,0}$ is the time of development approval for improved property $i$. $C_q$ and $C_q'$ represent average commencement and construction times by different improvement types q respectively. Some model specifications also include $Age_i^2$ that the captures quadratic depreciation. $Years$ is the year fixed effects at notional purchase. $Location$ is the location fixed effects at the State level\footnote{As there may be within-state variation in house prices that can affect the returns, we also test the results by controlling for the location fixed effects at SSD level. Similar results are found - See appendix table A2}. $K_i$ is a set of control factors namely - number of bedrooms, bathrooms and car spaces.
+where,$T_{i,+1}$ is the time of resale for property $i$, $T_{i,-1}$ is the time of purchase for property $i$, $T_{i,0}$ is the time of development approval for improved property $i$. $C_q$ and $C_q'$ represent average commencement and construction times by different improvement types q respectively. Some model specifications also include $Age_i^2$ that the captures quadratic depreciation. $Years$ is the year fixed effects at notional purchase\footnote{We also test the model with years fixed effects at the time of resale. The results are consistent and can be provided upon request from authors.}. $Location$ is the location fixed effects at the State level\footnote{As there may be within-state variation in house prices that can affect the returns, we also test the results by controlling for the location fixed effects at SSD level. Similar results are found - See appendix table A2}. $K_i$ is a set of control factors namely - number of bedrooms, bathrooms and car spaces.
 
 
 As the development is completed, in addition to the building value - $B_0'$, there is unobserved housing value - $H'$ produced which is the value of the home improvement. While the cost is explicitly observed at the time of development approval, the home improvement value is unobserved but is implicitly observed only in the resale price. This provides for our identification strategy. Now, since the value $H'$ is only identified between the point of development approval and resale, returns from the time of purchase to the point of development approval can only be attributed to the market appreciation and therefore any variation in the returns prior to the point of development approval does not contribute to the identification of home improvement value. 
@@ -298,7 +299,7 @@ The identification of the home improvement value comes from controlling for the 
 
 
 
-\input{Tables2/Variable_statistics.tex}
+\input{Tables2/variable_statistics_nominal_ex_ACT_NT.tex}
 
 Table \ref{tab:variable_statistics} shows the summary statistics for the main variables used in our model. We have a total of 1.1m records used in our model with 55,733 improved homes as our treatment sample and 1.08m unimproved homes as our control sample. The average purchase price for improved and unimproved homes is \$436,829 with a standard deviation of \$410,073 and \$378,005 with a standard deviation of \$313,949. The expected purchase price at the time of DA, for improved homes is \$554,532 and with average improvement cost of \$104,345, the average notional purchase price is \$658,879 with a standard deviation of \$536,042. The notional purchase price for unimproved homes is same as the purchase price. The average resale price for improved and unimproved homes is \$887,089 with standard deviation of \$723,141 and \$486,542 with standard deviation of \$379,065 respectively. The large standard deviation of improved homes is mainly due to the different types of home improvements as some improvements for e.g. verandas/pergolas add little value while others e.g. Duplex adds more value to the homes.
 
@@ -347,7 +348,9 @@ Apart from this there is some portion of the building value that is depreciated 
 The homes that choose to improve, on average, can be different from those that do not. There might be some random variable that is correlated with the house price return and the likelihood of improving i.e. being treated, potentially introducing a self-selection bias. Therefore, in order to correct for any self-selection bias, we calculate propensity scores for all observations using a logistic regression model and then match each improved home, i.e. from treatment sample, with unimproved homes in control sample, based on the calculated propensity scores, using the nearest neighbour method.
 
 The logistic regression model used in calculating propensity score is given as below, \begin{equation} \label{eqn:logistic}
-    DA = \alpha + \beta{P_{-1}}  + \gamma_1{Age_i} + \gamma_2{Age_i^2} + \psi{Land\_area} + \mu{K_i} + State + \epsilon_i
+\begin{aligned}
+    DA_i = \alpha + \beta{P_{i,-1}}  + \phi_1{Mkt\_Index_{i,-1}} + \phi_2{Mkt\_Index_{i,+1}} + \gamma_1{Age_i} \\+ \gamma_2{Age_i^2} + \psi{Land_i} + \mu{K_i} + State + \epsilon_i
+\end{aligned}
 \end{equation}
 
 where, $DA$ is the dummy variable coded as 1 for improved homes (treatment group) and 0 for unimproved homes (control group), $P_{-1}$ is the purchase price of the house, $Age_i$ is time between actual purchase and resale in months, $Land\_area$ is the size of the lot of land in square feet. $K_i$ is set of property attributes such as the number of bedrooms, bathrooms and car spaces and $i$ indexes the different attributes, $State$ is the state fixed effects and $\epsilon_i$ is the random error term. The set of variables that we use in the logistic regression model do not necessarily have to be same as those in the repeat-sale model as used in the main result. Rather, we use all available co-variates that potentially influences the propensity of homeowners choosing to improve their home.
@@ -461,7 +464,7 @@ or in matrix notation: $$r = xb + \epsilon$$
 where, $R$ is the log returns of resale price over notional purchase price. $x_j$ is a monthly dummy coded as '-1' only if the property was purchased in period $j = t$ (year, month), +1, only if the property was sold in the period $j = t'$ (year, month) and zero otherwise. $j$ is from period 2004-03 to 2016-07. 
 \begin{figure}[!htb]
     \centering
-     \includegraphics[width=\columnwidth]{Figures/Repeat_sales_index_post_2004_notional_purchase.png}
+     \includegraphics[width=\columnwidth]{Figures/Repeat_sales_index_post_2004_notional_purchase2.png}
  \caption{Repeat Sales Index (2004-2016) - DA vs Non-DA}
  \label{fig:BMN_RS_index_post_2004}
 \end{figure}
