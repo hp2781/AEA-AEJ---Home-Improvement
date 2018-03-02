@@ -4,91 +4,103 @@
 \begin{sidewaystable}[!htbp] \centering 
   \caption{Self Selection Bias Correction} 
   \label{tab:results_s0_self_select_bias} 
-    \resizebox{0.9\textwidth}{!}{
-\begin{tabular}{@{\extracolsep{5pt}}lHH D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+    \resizebox{0.95\textwidth}{!}{
+    \begin{threeparttable}
+    
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
 \\[-1.8ex] 
 \toprule \\[-1.8ex] 
 \\[-1.8ex] & \multicolumn{8}{c}{Log(Resale Price/Purchase Price (Notional))} \\ 
-\\[-1.8ex] & \multicolumn{1}{H}{(1)} & \multicolumn{1}{H}{(2)} & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)}\\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)} & \multicolumn{1}{c}{(6)} & \multicolumn{1}{c}{(7)} & \multicolumn{1}{c}{(8)}\\ 
 \midrule \\[-1.8ex] 
- DA &  &  &  &  &  &  & -0.028^{***} & -0.027^{***} \\ 
+ 
+  DA &  &  &  &  &  &  & -0.024^{***} & -0.023^{***} \\ 
   &  &  &  &  &  &  & (0.003) & (0.003) \\ 
   %& & & & & & & & \\ 
- Carports/Garages/Sheds & -0.053^{***} & -0.022^{***} & -0.006 & -0.013^{*} & -0.013^{*} & -0.014^{*} &  &  \\ 
+ Carports/Garages/Sheds & -0.065^{***} & -0.030^{***} & -0.007 & -0.011 & -0.011 & -0.010 &  &  \\ 
   & (0.008) & (0.008) & (0.008) & (0.008) & (0.008) & (0.008) &  &  \\ 
   %& & & & & & & & \\ 
- Duplex & 0.146^{***} & 0.140^{***} & 0.065^{***} & 0.066^{***} & 0.066^{***} & 0.078^{***} &  &  \\ 
-  & (0.014) & (0.014) & (0.014) & (0.014) & (0.014) & (0.014) &  &  \\ 
+ Duplex & 0.129^{***} & 0.126^{***} & 0.058^{***} & 0.060^{***} & 0.060^{***} & 0.075^{***} &  &  \\ 
+  & (0.014) & (0.013) & (0.014) & (0.014) & (0.014) & (0.014) &  &  \\ 
   %& & & & & & & & \\ 
- Extension/Alteration & 0.025^{***} & 0.022^{***} & -0.023^{***} & -0.030^{***} & -0.030^{***} & -0.023^{***} &  &  \\ 
+ Extension/Alteration & 0.017^{***} & 0.016^{***} & -0.023^{***} & -0.027^{***} & -0.027^{***} & -0.019^{***} &  &  \\ 
   & (0.004) & (0.004) & (0.004) & (0.004) & (0.004) & (0.004) &  &  \\ 
   %& & & & & & & & \\ 
- House/Single Dwelling & -0.045^{***} & -0.065^{***} & -0.142^{***} & -0.142^{***} & -0.142^{***} & -0.134^{***} &  &  \\ 
+ House/Single Dwelling & -0.056^{***} & -0.073^{***} & -0.144^{***} & -0.142^{***} & -0.142^{***} & -0.133^{***} &  &  \\ 
   & (0.007) & (0.007) & (0.007) & (0.007) & (0.007) & (0.007) &  &  \\ 
   %& & & & & & & & \\ 
- Multiple DA & 0.025^{***} & 0.005 & -0.034^{***} & -0.033^{***} & -0.033^{***} & -0.033^{***} &  &  \\ 
+ Multiple DA & 0.016^{**} & -0.001 & -0.032^{***} & -0.030^{***} & -0.029^{***} & -0.030^{***} &  &  \\ 
   & (0.007) & (0.007) & (0.007) & (0.007) & (0.007) & (0.007) &  &  \\ 
   %& & & & & & & & \\ 
- Swimming Pool & -0.034^{***} & -0.029^{***} & 0.021^{***} & 0.014^{***} & 0.014^{***} & 0.007^{*} &  &  \\ 
+ Swimming Pool & -0.042^{***} & -0.035^{***} & 0.024^{***} & 0.021^{***} & 0.021^{***} & 0.012^{***} &  &  \\ 
   & (0.004) & (0.004) & (0.004) & (0.004) & (0.004) & (0.004) &  &  \\ 
   %& & & & & & & & \\ 
- Verandahs/Pergolas & -0.055^{***} & -0.040^{***} & -0.005 & -0.015^{***} & -0.016^{***} & -0.017^{***} &  &  \\ 
-  & (0.005) & (0.005) & (0.004) & (0.004) & (0.004) & (0.004) &  &  \\ 
+ Verandahs/Pergolas & -0.065^{***} & -0.047^{***} & -0.004 & -0.009^{**} & -0.009^{**} & -0.010^{**} &  &  \\ 
+  & (0.005) & (0.005) & (0.004) & (0.005) & (0.005) & (0.005) &  &  \\ 
   %& & & & & & & & \\ 
- MktReturn & 0.804^{***} & 0.794^{***} & 0.780^{***} & 0.907^{***} & 0.906^{***} & 0.905^{***} & 0.916^{***} & 0.915^{***} \\ 
-  & (0.011) & (0.011) & (0.010) & (0.012) & (0.012) & (0.012) & (0.012) & (0.012) \\ 
+ MktReturn & 0.761^{***} & 0.761^{***} & 0.758^{***} & 0.866^{***} & 0.866^{***} & 0.869^{***} & 0.870^{***} & 0.873^{***} \\ 
+  & (0.010) & (0.010) & (0.010) & (0.012) & (0.012) & (0.012) & (0.012) & (0.012) \\ 
   %& & & & & & & & \\ 
- Months between sales &  &  &  & -0.001^{***} & -0.002^{***} & -0.002^{***} & -0.002^{***} & -0.002^{***} \\ 
+ Months between sales &  &  &  & -0.001^{***} & -0.001^{***} & -0.001^{***} & -0.001^{***} & -0.002^{***} \\ 
   &  &  &  & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) \\ 
   %& & & & & & & & \\ 
- Months between sales squared &  &  &  &  & 0.000^{**} & 0.000^{**} & 0.000^{**} & 0.000^{**} \\ 
+ Months between sales squared &  &  &  &  & 0.000 & 0.000 & 0.000 & 0.000^{*} \\ 
   &  &  &  &  & (0.000) & (0.000) & (0.000) & (0.000) \\ 
   %& & & & & & & & \\ 
- No. of beds (resale) &  & 0.001 & 0.032^{***} & 0.032^{***} & 0.032^{***} &  & 0.028^{***} &  \\ 
+ No. of beds (resale) &  & 0.004^{**} & 0.034^{***} & 0.033^{***} & 0.033^{***} &  & 0.030^{***} &  \\ 
   &  & (0.002) & (0.002) & (0.002) & (0.002) &  & (0.002) &  \\ 
   %& & & & & & & & \\ 
- No. of baths (resale) &  & 0.054^{***} & 0.093^{***} & 0.092^{***} & 0.092^{***} &  & 0.084^{***} &  \\ 
-  &  & (0.002) & (0.003) & (0.003) & (0.003) &  & (0.002) &  \\ 
+ No. of baths (resale) &  & 0.051^{***} & 0.090^{***} & 0.090^{***} & 0.090^{***} &  & 0.082^{***} &  \\ 
+  &  & (0.002) & (0.002) & (0.002) & (0.002) &  & (0.002) &  \\ 
   %& & & & & & & & \\ 
- No. of cars (resale) &  & -0.004^{***} & 0.009^{***} & 0.011^{***} & 0.011^{***} &  & 0.012^{***} &  \\ 
+ No. of cars (resale) &  & -0.005^{***} & 0.009^{***} & 0.011^{***} & 0.011^{***} &  & 0.011^{***} &  \\ 
   &  & (0.001) & (0.001) & (0.001) & (0.001) &  & (0.001) &  \\ 
   %& & & & & & & & \\ 
- No. of beds (purchase) &  &  & -0.050^{***} & -0.050^{***} & -0.050^{***} &  & -0.043^{***} &  \\ 
+ No. of beds (purchase) &  &  & -0.049^{***} & -0.049^{***} & -0.049^{***} &  & -0.042^{***} &  \\ 
+  &  &  & (0.003) & (0.003) & (0.003) &  & (0.002) &  \\ 
+  %& & & & & & & & \\ 
+ No. of baths (purchase) &  &  & -0.102^{***} & -0.101^{***} & -0.101^{***} &  & -0.093^{***} &  \\ 
   &  &  & (0.003) & (0.003) & (0.003) &  & (0.003) &  \\ 
   %& & & & & & & & \\ 
- No. of baths (purchase) &  &  & -0.094^{***} & -0.093^{***} & -0.092^{***} &  & -0.085^{***} &  \\ 
-  &  &  & (0.003) & (0.003) & (0.003) &  & (0.003) &  \\ 
-  %& & & & & & & & \\ 
- No. of cars (purchase) &  &  & -0.027^{***} & -0.027^{***} & -0.027^{***} &  & -0.026^{***} &  \\ 
+ No. of cars (purchase) &  &  & -0.030^{***} & -0.030^{***} & -0.030^{***} &  & -0.028^{***} &  \\ 
   &  &  & (0.002) & (0.002) & (0.002) &  & (0.002) &  \\ 
   %& & & & & & & & \\ 
- Change in \# of beds &  &  &  &  &  & 0.039^{***} &  & 0.034^{***} \\ 
+ Change in \# of beds &  &  &  &  &  & 0.039^{***} &  & 0.035^{***} \\ 
   &  &  &  &  &  & (0.002) &  & (0.002) \\ 
   %& & & & & & & & \\ 
- Change in \# of baths &  &  &  &  &  & 0.091^{***} &  & 0.084^{***} \\ 
+ Change in \# of baths &  &  &  &  &  & 0.092^{***} &  & 0.085^{***} \\ 
   &  &  &  &  &  & (0.002) &  & (0.002) \\ 
   %& & & & & & & & \\ 
  Change in \# of cars &  &  &  &  &  & 0.016^{***} &  & 0.016^{***} \\ 
   &  &  &  &  &  & (0.001) &  & (0.001) \\ 
   %& & & & & & & & \\ 
- Constant & 0.113^{***} & -0.007 & 0.136^{***} & 0.182^{***} & 0.189^{***} & 0.097^{***} & 0.188^{***} & 0.110^{***} \\ 
-  & (0.009) & (0.011) & (0.011) & (0.011) & (0.012) & (0.010) & (0.012) & (0.010) \\ 
+ Constant & 0.137^{***} & 0.009 & 0.160^{***} & 0.197^{***} & 0.200^{***} & 0.093^{***} & 0.196^{***} & 0.104^{***} \\ 
+  & (0.008) & (0.010) & (0.010) & (0.010) & (0.011) & (0.008) & (0.011) & (0.008) \\ 
   %& & & & & & & & \\ 
 Year Fixed Effects & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\ 
-Location Fixed Effects & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes  \\ 
-Observations & \multicolumn{1}{H}{36,598} & \multicolumn{1}{H}{36,598} & \multicolumn{1}{c}{36,598} & \multicolumn{1}{c}{36,598} & \multicolumn{1}{c}{36,598} & \multicolumn{1}{c}{36,598} & \multicolumn{1}{c}{36,598} & \multicolumn{1}{c}{36,598} \\ 
-Adjusted R$^{2}$ & \multicolumn{1}{H}{0.267} & \multicolumn{1}{H}{0.285} & \multicolumn{1}{c}{0.348} & \multicolumn{1}{c}{0.354} & \multicolumn{1}{c}{0.354} & \multicolumn{1}{c}{0.350} & \multicolumn{1}{c}{0.344} & \multicolumn{1}{c}{0.341} \\ 
-F Statistic & \multicolumn{1}{H}{534.786$^{***}$} & \multicolumn{1}{H}{522.990$^{***}$} & \multicolumn{1}{c}{631.372$^{***}$} & \multicolumn{1}{c}{628.541$^{***}$} & \multicolumn{1}{c}{609.742$^{***}$} & \multicolumn{1}{c}{658.663$^{***}$} & \multicolumn{1}{c}{712.210$^{***}$} & \multicolumn{1}{c}{790.012$^{***}$} \\ 
-
- & \multicolumn{1}{H}{(df = 25; 36572)} & \multicolumn{1}{H}{(df = 28; 36569)} & \multicolumn{1}{c}{(df = 31; 36566)} & \multicolumn{1}{c}{(df = 32; 36565)} & \multicolumn{1}{c}{(df = 33; 36564)} & \multicolumn{1}{c}{(df = 30; 36567)} & \multicolumn{1}{c}{(df = 27; 36570)} & \multicolumn{1}{c}{(df = 24; 36573)} \\ 
+Location Fixed Effects & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\ 
+Observations & \multicolumn{1}{c}{40,732} & \multicolumn{1}{c}{40,732} & \multicolumn{1}{c}{40,732} & \multicolumn{1}{c}{40,732} & \multicolumn{1}{c}{40,732} & \multicolumn{1}{c}{40,732} & \multicolumn{1}{c}{40,732} & \multicolumn{1}{c}{40,732} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.294} & \multicolumn{1}{c}{0.311} & \multicolumn{1}{c}{0.377} & \multicolumn{1}{c}{0.382} & \multicolumn{1}{c}{0.382} & \multicolumn{1}{c}{0.376} & \multicolumn{1}{c}{0.373} & \multicolumn{1}{c}{0.368} \\ 
+%F Statistic & \multicolumn{1}{c}{680.395$^{***}$ (df = 25; 40706)} & \multicolumn{1}{c}{657.758$^{***}$ (df = 28; 40703)} & \multicolumn{1}{c}{796.219$^{***}$ (df = 31; 40700)} & \multicolumn{1}{c}{787.249$^{***}$ (df = 32; 40699)} & \multicolumn{1}{c}{763.472$^{***}$ (df = 33; 40698)} & \multicolumn{1}{c}{819.946$^{***}$ (df = 30; 40701)} & \multicolumn{1}{c}{896.923$^{***}$ (df = 27; 40704)} & \multicolumn{1}{c}{989.584$^{***}$ (df = 24; 40707)} \\ 
 
 
+F Statistic & \multicolumn{1}{c}{680.395$^{***}$} & \multicolumn{1}{c}{657.758$^{***}$} & \multicolumn{1}{c}{796.219$^{***}$} & \multicolumn{1}{c}{787.249$^{***}$} & \multicolumn{1}{c}{763.472$^{***}$} & \multicolumn{1}{c}{819.946$^{***}$} & \multicolumn{1}{c}{896.923$^{***}$} & \multicolumn{1}{c}{989.584$^{***}$} \\ 
+
+ & \multicolumn{1}{c}{(df = 25; 40706)} & \multicolumn{1}{c}{(df = 28; 40703)} & \multicolumn{1}{c}{(df = 31; 40700)} & \multicolumn{1}{c}{(df = 32; 40699)} & \multicolumn{1}{c}{(df = 33; 40698)} & \multicolumn{1}{c}{(df = 30; 40701)} & \multicolumn{1}{c}{(df = 27; 40704)} & \multicolumn{1}{c}{(df = 24; 40707)} \\ 
 
 
-%F Statistic & \multicolumn{1}{c}{534.786$^{***}$ (df = 25; 36572)} & \multicolumn{1}{c}{522.990$^{***}$ (df = 28; 36569)} & \multicolumn{1}{c}{631.372$^{***}$ (df = 31; 36566)} & \multicolumn{1}{c}{628.541$^{***}$ (df = 32; 36565)} & \multicolumn{1}{c}{609.742$^{***}$ (df = 33; 36564)} & \multicolumn{1}{c}{658.663$^{***}$ (df = 30; 36567)} & \multicolumn{1}{c}{712.210$^{***}$ (df = 27; 36570)} & \multicolumn{1}{c}{790.012$^{***}$ (df = 24; 36573)} \\ 
 
 \bottomrule \\[-1.8ex] 
-\multicolumn{9}{p{1.18\textwidth}}{Robust standard errors are reported in parentheses, Significance of variables is adjusted accordingly. *** 0.1\% significance ** 1\% significance * 5\% significance. We have a total of 40,482 (20,241 for treatment and 20,241 for control sample) possible observation with deviation accounted for by missing data.} \\ 
-\end{tabular} 
+%\multicolumn{9}{p{1.18\textwidth}}{Robust standard errors are reported in parentheses, Significance of variables is adjusted accordingly. *** 0.1\% significance ** 1\% significance * 5\% significance. We have a total of 40,732 (20,366 for treatment and 20,366 for control sample) possible observation with deviation accounted for by missing data.} \\ 
+\end{tabular}
+
+ \begin{tablenotes}[para,flushleft]
+  \LARGE
+      Notes: Robust standard errors are reported in parentheses, Significance of variables is adjusted accordingly. *** 0.1\% significance ** 1\% significance * 5\% significance. We have a total of 40,732 (20,366 for treatment and 20,366 for control sample) possible observation with deviation accounted for by missing data.
+\end{tablenotes}    
+
+    \end{threeparttable}
+
+
 }
 \end{sidewaystable} 
